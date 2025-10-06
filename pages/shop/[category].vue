@@ -105,6 +105,6 @@ const openVarietyModal = (variety: any) => {
 
 // Set page meta
 useHead({
-    title: () => categoryData.value ? `${categoryData.value.name} - De Toffe Peren` : 'Assortiment - De Toffe Peren'
+    title: () => categoryData.value ? `${categoryData.value.name} - Toffe Peren` : 'Assortiment - Toffe Peren'
 })
 </script>

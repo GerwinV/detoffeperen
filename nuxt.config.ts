@@ -35,14 +35,14 @@ export default defineNuxtConfig({
 
     app: {
         head: {
-            title: "De Toffe Peren - Fruitbomen",
+            title: "Toffe Peren - Fruitbomen",
             htmlAttrs: {
                 lang: "nl",
             },
             meta: [
                 { charset: "utf-8" },
                 { name: "viewport", content: "width=device-width, initial-scale=1" },
-                { name: "description", content: "De Toffe Peren - Specialist in voedselbos bomen." },
+                { name: "description", content: "Toffe Peren - Specialist in voedselbos bomen." },
                 { name: "format-detection", content: "telephone=no" },
             ],
             link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],

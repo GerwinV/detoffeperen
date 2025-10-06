@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="text-center">
                     <h1 class="text-3xl md:text-4xl font-bold font-playfair text-text mb-2">
-                        Kwekerij <span class="text-gradient">De toffe peren</span>
+                        Kwekerij <span class="text-gradient">Toffe peren</span>
                     </h1>
                     <p class="text-sm md:text-base text-gray-600 mb-4 max-w-xl mx-auto">
                         Biologische fruitbomen voor voedselbossen en tuinen

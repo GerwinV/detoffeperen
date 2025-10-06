@@ -6,7 +6,7 @@
                 <div class="md:col-span-1">
                     <div class="flex items-center space-x-3 mb-4">
                         <PearIcon class="h-8 w-8 text-accent" />
-                        <span class="text-xl font-bold font-playfair">De Toffe Peren</span>
+                        <span class="text-xl font-bold font-playfair">Toffe Peren</span>
                     </div>
                     <p class="text-gray-300 text-sm">
                         Kwekerij voor fruitbomen zeer geschikt voor voedselbossen.
@@ -62,7 +62,7 @@
             <div class="mt-12 pt-8 border-t border-gray-700">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <p class="text-sm text-gray-400">
-                        © {{ currentYear }} De Toffe Peren. Alle rechten voorbehouden.
+                        © {{ currentYear }} Toffe Peren. Alle rechten voorbehouden.
                     </p>
                     <!-- Privacy and terms links - uncomment when pages are created -->
                     <!-- <div class="flex space-x-6 text-sm text-gray-400">

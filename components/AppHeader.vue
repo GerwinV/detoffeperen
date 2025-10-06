@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between h-16">
         <NuxtLink to="/" class="flex items-center space-x-3">
           <PearIcon class="h-8 w-8 text-primary" />
-          <span class="text-xl font-bold text-text font-playfair">De Toffe Peren</span>
+          <span class="text-xl font-bold text-text font-playfair">Toffe Peren</span>
         </NuxtLink>
 
         <!-- Desktop Navigation -->
