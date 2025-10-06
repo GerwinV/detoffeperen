@@ -9,7 +9,7 @@
                         <span class="text-xl font-bold font-playfair">De Toffe Peren</span>
                     </div>
                     <p class="text-gray-300 text-sm">
-                        Uw specialist in biologische fruitbomen. Al meer dan 20 jaar leveren wij de beste kwaliteit fruitbomen voor uw tuin.
+                        Kwekerij voor fruitbomen zeer geschikt voor voedselbossen.
                     </p>
                 </div>
 
@@ -34,7 +34,7 @@
                 <div>
                     <h3 class="font-semibold text-lg mb-4">Contact</h3>
                     <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start">
+                        <!-- <li class="flex items-start">
                             <MapPin class="h-5 w-5 text-accent mr-2 flex-shrink-0 mt-0.5" />
                             <span class="text-sm">
                                 Boomgaardlaan 123<br />
@@ -47,7 +47,7 @@
                             <a href="tel:+31612345678" class="hover:text-accent transition-colors">
                                 +31 6 12345678
                             </a>
-                        </li>
+                        </li> -->
                         <li class="flex items-center">
                             <Mail class="h-5 w-5 text-accent mr-2 flex-shrink-0" />
                             <a href="mailto:info@detoffeperen.nl" class="hover:text-accent transition-colors">
