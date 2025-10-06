@@ -24,18 +24,43 @@
             </div>
         </section>
 
+        <!-- Story Section -->
+        <section class="py-12 md:py-16">
+            <div class="container">
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200">
+                            <!-- Image placeholder - replace with actual image -->
+                            <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+                                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h2 class="text-2xl md:text-3xl font-bold font-playfair text-text">
+                                Ons verhaal
+                            </h2>
+                            <div class="prose prose-gray max-w-none">
+                                <p class="text-gray-700 leading-relaxed">
+                                    Verhaaltje hier!
+                                </p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Hoe kweken we etc?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Slim Newsletter Bar -->
         <section class="py-6 bg-white border-t">
             <div class="container">
                 <form @submit.prevent="subscribeNewsletter" class="flex flex-col sm:flex-row items-center gap-4 max-w-2xl mx-auto">
                     <span class="text-sm font-medium text-gray-700 whitespace-nowrap">Blijf op de hoogte:</span>
-                    <BaseInput
-                        v-model="email"
-                        type="email"
-                        placeholder="Uw e-mailadres"
-                        required
-                        class="flex-1"
-                        size="sm" />
+                    <BaseInput v-model="email" type="email" placeholder="Uw e-mailadres" required class="flex-1" size="sm" />
                     <BaseButton type="submit" :loading="subscribing" size="sm">
                         Aanmelden
                     </BaseButton>
