@@ -29,6 +29,17 @@
         <section class="py-8 md:py-12">
             <div class="container">
                 <div v-if="categoryData">
+                    <!-- Info message -->
+                    <div class="mb-8 text-center">
+                        <div class="inline-block bg-blue-50 border border-blue-200 rounded-lg px-6 py-4 max-w-2xl">
+                            <p class="text-sm text-gray-700">
+                                Dit jaar hebben we nog een beperkte voorraad, neem
+                                <NuxtLink to="/contact" class="text-primary font-semibold hover:underline">contact</NuxtLink>
+                                met ons op wanneer je interesse in een variëteit hebt.
+                            </p>
+                        </div>
+                    </div>
+
                     <!-- Variety count badge -->
                     <div class="mb-6 text-center">
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
