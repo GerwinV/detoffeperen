@@ -21,7 +21,7 @@
                             <NuxtLink to="/" class="hover:text-accent transition-colors">Home</NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/shop" class="hover:text-accent transition-colors">Shop</NuxtLink>
+                            <NuxtLink to="/shop" class="hover:text-accent transition-colors">Assortiment</NuxtLink>
                         </li>
                         <li>
                             <NuxtLink to="/contact" class="hover:text-accent transition-colors">Contact</NuxtLink>

@@ -55,38 +55,13 @@
             </div>
         </section>
 
-        <!-- Slim Newsletter Bar -->
-        <section class="py-6 bg-white border-t">
-            <div class="container">
-                <form @submit.prevent="subscribeNewsletter" class="flex flex-col sm:flex-row items-center gap-4 max-w-2xl mx-auto">
-                    <span class="text-sm font-medium text-gray-700 whitespace-nowrap">Blijf op de hoogte:</span>
-                    <BaseInput v-model="email" type="email" placeholder="Uw e-mailadres" required class="flex-1" size="sm" />
-                    <BaseButton type="submit" :loading="subscribing" size="sm">
-                        Aanmelden
-                    </BaseButton>
-                </form>
-            </div>
-        </section>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useTreeData } from '~/composables/useTreeData'
 import CategoryGrid from '~/components/CategoryGrid.vue'
 
-const email = ref('')
-const subscribing = ref(false)
-
 const { getCategories } = useTreeData()
 const categories = getCategories()
-
-const subscribeNewsletter = async () => {
-    subscribing.value = true
-    // TODO: Implement newsletter subscription
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    subscribing.value = false
-    email.value = ''
-    alert('Bedankt voor uw aanmelding!')
-}
 </script>

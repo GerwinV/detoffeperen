@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Space Mono', 'monospace'],
         playfair: ['Playfair Display', 'serif'],
       },
       colors: {

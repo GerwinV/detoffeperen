@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 
     googleFonts: {
         families: {
-            Inter: [400, 500, 600, 700],
+            "Space Mono": [400, 700],
             Playfair: {
                 wght: [400, 700],
                 ital: [400],

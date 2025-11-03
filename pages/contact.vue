@@ -15,9 +15,9 @@
         <!-- Contact Content -->
         <section class="py-16 md:py-24">
             <div class="container">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="max-w-2xl mx-auto">
                     <!-- Contact Form -->
-                    <div>
+                    <!-- <div>
                         <h2 class="text-2xl font-bold font-playfair mb-6">Stuur Ons Een Bericht</h2>
                         <form @submit.prevent="handleSubmit" class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -37,7 +37,7 @@
                                 Verstuur Bericht
                             </BaseButton>
                         </form>
-                    </div>
+                    </div> -->
 
                     <!-- Contact Information -->
                     <div>
@@ -198,7 +198,7 @@ const activeFaq = ref<number | null>(null)
 const faqs = [
     {
         question: 'Kan ik de kwekerij bezoeken?',
-        answer: 'Neem daarvoor contact met ons op via het contactformulier.'
+        answer: 'Neem daarvoor contact met ons op via ons emailadres.'
     },
     {
         question: 'Leveren jullie door heel Nederland?',
