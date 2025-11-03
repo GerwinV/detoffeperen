@@ -8,7 +8,7 @@
                         Kwekerij <span class="text-gradient">Toffe peren</span>
                     </h1>
                     <p class="text-sm md:text-base text-gray-600 mb-4 max-w-xl mx-auto">
-                        Biologische fruitbomen voor voedselbossen en tuinen
+                        Ecologisch verantwoorde fruitbomen voor voedselbossen en tuinen
                     </p>
                     <BaseButton size="md" to="/shop">
                         Bekijk assortiment

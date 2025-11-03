@@ -44,7 +44,7 @@
                 <div class="flex flex-wrap justify-center gap-8 md:gap-12">
                     <div class="flex items-center gap-2 text-sm">
                         <Sprout class="w-5 h-5 text-primary" />
-                        <span class="text-gray-700">100% Biologisch</span>
+                        <span class="text-gray-700">100% Ecologisch verantwoord</span>
                     </div>
                     <div class="flex items-center gap-2 text-sm">
                         <Trees class="w-5 h-5 text-primary" />

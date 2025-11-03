@@ -31,7 +31,7 @@ export const useTreeData = () => {
           slug: 'ecolette',
           rootstocks: ['M7', 'M11'],
           harvestTime: 'Eind september',
-          description: 'Schurftresistente herfstappel met zoete, aromatische smaak. Zeer geschikt voor biologische teelt. Goede bewaarappel.'
+          description: 'Schurftresistente herfstappel met zoete, aromatische smaak. Zeer geschikt voor ecologisch verantwoorde teelt. Goede bewaarappel.'
         },
         {
           name: 'Elise',
@@ -70,7 +70,7 @@ export const useTreeData = () => {
           slug: 'rubinola',
           rootstocks: ['M7', 'M11'],
           harvestTime: 'September/oktober',
-          description: 'Schurftresistente appel met uitgebalanceerde zoetzure smaak. Knapperig sappig vruchtvlees. Zeer geschikt voor biologische teelt.'
+          description: 'Schurftresistente appel met uitgebalanceerde zoetzure smaak. Knapperig sappig vruchtvlees. Zeer geschikt voor ecologisch verantwoorde teelt.'
         },
         {
           name: 'Santana',
@@ -137,7 +137,7 @@ export const useTreeData = () => {
           name: 'Legipont',
           slug: 'legipont',
           rootstocks: ['Pyrodwarf', 'Kirchensaller'],
-          description: 'Moderne peer met goede ziekteweerstand. Sappige vruchten met zoete smaak. Geschikt voor biologische teelt.'
+          description: 'Moderne peer met goede ziekteweerstand. Sappige vruchten met zoete smaak. Geschikt voor ecologisch verantwoorde teelt.'
         },
         {
           name: 'Packhams Triumph',

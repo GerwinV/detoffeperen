@@ -48,7 +48,7 @@
           <div class="bg-gray-50 rounded-lg p-4">
             <div class="flex items-center text-green-600 mb-2">
               <Sprout class="w-5 h-5 mr-2" />
-              <span class="font-semibold">Biologisch gekweekt</span>
+              <span class="font-semibold">Ecologisch verantwoord gekweekt</span>
             </div>
             <p class="text-sm text-gray-600">
               Zonder bestrijdingsmiddelen of kunstmest
