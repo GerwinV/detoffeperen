@@ -16,8 +16,8 @@
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <h3 class="text-xl font-semibold text-text mb-2">{{ category.name }}</h3>
-          <p class="text-sm text-gray-600 mb-3">{{ category.count }} variëteiten</p>
-          <p class="text-gray-600 text-sm flex-grow">{{ category.description }}</p>
+          <p class="text-sm text-[rgb(var(--color-text)/0.6)] mb-3">{{ category.count }} variëteiten</p>
+          <p class="text-[rgb(var(--color-text)/0.8)] text-sm flex-grow">{{ category.description }}</p>
           <div class="mt-4 flex items-center text-primary font-medium">
             <span>Bekijk variëteiten</span>
             <ChevronRight class="w-4 h-4 ml-1" />

@@ -4,12 +4,16 @@
 
 @layer base {
   :root {
-    --color-primary: 34 139 34; /* Forest Green */
-    --color-secondary: 139 69 19; /* Saddle Brown */
-    --color-accent: 255 215 0; /* Gold */
-    --color-success: 50 205 50; /* Lime Green */
-    --color-background: 245 245 220; /* Beige */
-    --color-text: 47 79 79; /* Dark Slate Gray */
+    --color-primary: 195 210 8; /* Lichtgroen - voor buttons en links */
+    --color-secondary: 63 30 30; /* Donkerbruin - voor secundaire elementen */
+    --color-accent: 195 210 8; /* Lichtgroen - accent */
+    --color-success: 195 210 8; /* Lichtgroen */
+    --color-background: 173 159 130; /* Beige - main content achtergrond */
+    --color-text: 63 30 30; /* Donkerbruin - tekst op lichte achtergrond */
+    --color-header: 195 210 8; /* Lichtgroen - header achtergrond */
+    --color-footer: 195 210 8; /* Lichtgroen - footer achtergrond */
+    --color-card: 245 245 240; /* Licht - voor cards */
+    --color-dark: 63 30 30; /* Donkerbruin - voor donkere secties */
   }
 
   html {

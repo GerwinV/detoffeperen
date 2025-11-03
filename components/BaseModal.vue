@@ -33,7 +33,7 @@
                 <div class="sm:flex sm:items-start">
                   <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
                     <slot name="header">
-                      <h3 class="text-lg font-semibold leading-6 text-gray-900">
+                      <h3 class="text-lg font-semibold leading-6 text-text">
                         {{ title }}
                       </h3>
                     </slot>
@@ -45,7 +45,7 @@
                 <slot />
               </div>
 
-              <div v-if="$slots.footer" class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <div v-if="$slots.footer" class="bg-[rgb(var(--color-background)/0.2)] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                 <slot name="footer" />
               </div>
             </div>
@@ -77,7 +77,7 @@ const emit = defineEmits<{
 
 const modalClasses = computed(() => {
   const base = 'relative inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle'
-  
+
   const sizes = {
     sm: 'sm:max-w-sm sm:w-full',
     md: 'sm:max-w-md sm:w-full',
@@ -85,7 +85,7 @@ const modalClasses = computed(() => {
     xl: 'sm:max-w-xl sm:w-full',
     full: 'sm:max-w-full sm:w-full sm:mx-4'
   }
-  
+
   return [base, sizes[props.size]].join(' ')
 })
 

@@ -1,12 +1,12 @@
 <template>
     <div>
         <!-- Hero Section -->
-        <section class="bg-gradient-to-br from-green-50 to-green-100 py-16 md:py-24">
+        <section class="py-16 md:py-24">
             <div class="container">
                 <h1 class="text-4xl md:text-5xl font-bold font-playfair text-center text-text mb-6">
                     Contact
                 </h1>
-                <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-center text-[rgb(var(--color-text)/0.8)] max-w-3xl mx-auto">
                     We staan klaar om al uw vragen te beantwoorden
                 </p>
             </div>
@@ -41,7 +41,7 @@
 
                     <!-- Contact Information -->
                     <div>
-                        <h2 class="text-2xl font-bold font-playfair mb-6">Contactgegevens</h2>
+                        <h2 class="text-2xl font-bold font-playfair mb-6 text-text">Contactgegevens</h2>
 
                         <div class="space-y-6">
                             <!-- Address -->
@@ -88,13 +88,13 @@
                                     <div class="flex items-start">
                                         <Mail class="h-6 w-6 text-primary mt-1 mr-4 flex-shrink-0" />
                                         <div>
-                                            <h3 class="font-semibold mb-2">E-mail</h3>
-                                            <p class="text-gray-600">
+                                            <h3 class="font-semibold mb-2 text-text">E-mail</h3>
+                                            <p class="text-text">
                                                 <a href="mailto:info@detoffeperen.nl" class="hover:text-primary">
                                                     info@detoffeperen.nl
                                                 </a>
                                             </p>
-                                            <p class="text-sm text-gray-500 mt-1">
+                                            <p class="text-sm text-[rgb(var(--color-text)/0.6)] mt-1">
                                                 Wij proberen binnen 24 uur te reageren.
                                             </p>
                                         </div>
@@ -144,21 +144,21 @@
         </section> -->
 
         <!-- FAQ Section -->
-        <section class="py-16 md:py-24">
+        <section class="py-16 md:py-24 bg-white">
             <div class="container max-w-3xl">
-                <h2 class="text-2xl font-bold font-playfair text-center mb-8">Veelgestelde Vragen</h2>
+                <h2 class="text-2xl font-bold font-playfair text-center mb-8 text-text">Veelgestelde Vragen</h2>
                 <div class="space-y-4">
                     <BaseCard v-for="(faq, index) in faqs" :key="index">
                         <button @click="toggleFaq(index)" class="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                             <div class="flex justify-between items-center">
-                                <h3 class="font-semibold">{{ faq.question }}</h3>
+                                <h3 class="font-semibold text-text">{{ faq.question }}</h3>
                                 <ChevronDown :class="[
-                                    'h-5 w-5 text-gray-500 transition-transform duration-200',
+                                    'h-5 w-5 text-[rgb(var(--color-text)/0.5)] transition-transform duration-200',
                                     activeFaq === index && 'transform rotate-180'
                                 ]" />
                             </div>
                             <Transition enter-active-class="transition-all duration-200" enter-from-class="opacity-0 max-h-0" enter-to-class="opacity-100 max-h-96" leave-active-class="transition-all duration-200" leave-from-class="opacity-100 max-h-96" leave-to-class="opacity-0 max-h-0">
-                                <p v-if="activeFaq === index" class="text-gray-600 mt-4">
+                                <p v-if="activeFaq === index" class="text-text mt-4">
                                     {{ faq.answer }}
                                 </p>
                             </Transition>
