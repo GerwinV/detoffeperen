@@ -1,19 +1,17 @@
 <template>
     <div>
         <!-- Hero Section -->
-        <section class="py-16 md:py-24">
-            <div class="container">
-                <h1 class="text-4xl md:text-5xl font-bold font-playfair text-center text-text mb-6">
-                    Contact
-                </h1>
-                <p class="text-xl text-center text-[rgb(var(--color-text)/0.8)] max-w-3xl mx-auto">
-                    We staan klaar om al uw vragen te beantwoorden
-                </p>
-            </div>
-        </section>
+        <PageHero>
+            <template #image>
+                <!-- TODO: Replace with actual contact image -->
+                <div class="absolute inset-0 flex items-center justify-center text-[rgb(var(--color-text)/0.2)]">
+                    <Mail class="w-32 h-32" />
+                </div>
+            </template>
+        </PageHero>
 
         <!-- Contact Content -->
-        <section class="py-16 md:py-24">
+        <section class="py-16 md:py-24 bg-white">
             <div class="container">
                 <div class="max-w-2xl mx-auto">
                     <!-- Contact Form -->
@@ -83,18 +81,18 @@
                             </BaseCard> -->
 
                             <!-- Email -->
-                            <BaseCard>
+                            <BaseCard class="bg-[rgb(var(--color-background))] border border-[rgb(var(--color-text)/0.1)] shadow-md">
                                 <div class="p-6">
                                     <div class="flex items-start">
                                         <Mail class="h-6 w-6 text-primary mt-1 mr-4 flex-shrink-0" />
                                         <div>
-                                            <h3 class="font-semibold mb-2 text-text">E-mail</h3>
-                                            <p class="text-text">
-                                                <a href="mailto:info@detoffeperen.nl" class="hover:text-primary">
+                                            <h3 class="font-semibold mb-2 text-[rgb(var(--color-text))]">E-mail</h3>
+                                            <p class="text-[rgb(var(--color-text))]">
+                                                <a href="mailto:info@detoffeperen.nl" class="hover:text-primary transition-colors">
                                                     info@detoffeperen.nl
                                                 </a>
                                             </p>
-                                            <p class="text-sm text-[rgb(var(--color-text)/0.6)] mt-1">
+                                            <p class="text-sm text-[rgb(var(--color-text)/0.7)] mt-1">
                                                 Wij proberen binnen 24 uur te reageren.
                                             </p>
                                         </div>
