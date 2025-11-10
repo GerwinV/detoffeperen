@@ -3,10 +3,11 @@
         <!-- Hero Section -->
         <PageHero>
             <template #image>
-                <!-- TODO: Replace with actual image of pears -->
-                <div class="absolute inset-0 flex items-center justify-center text-[rgb(var(--color-text)/0.2)]">
-                    <Trees class="w-32 h-32" />
-                </div>
+                <NuxtImg
+                    src="/images/assortiment.jpeg"
+                    alt="Assortiment"
+                    class="absolute inset-0 w-full h-full object-cover"
+                />
             </template>
         </PageHero>
 
@@ -139,5 +140,5 @@
 </template>
 
 <script setup lang="ts">
-import { Trees, ChevronRight } from 'lucide-vue-next'
+import { ChevronRight } from 'lucide-vue-next'
 </script>

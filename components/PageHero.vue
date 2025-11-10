@@ -7,8 +7,8 @@
                 <div class="absolute inset-0 bg-gradient-to-br from-[rgb(var(--color-background))] to-[rgb(var(--color-background)/0.8)]">
                     <slot name="image">
                         <!-- Default placeholder -->
-                        <div class="absolute inset-0 flex items-center justify-center text-[rgb(var(--color-text)/0.2)]">
-                            <Trees class="w-32 h-32" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <img src="/logo/logo.png" alt="de Toffe Peren" class="w-32 h-32 object-contain opacity-20" />
                         </div>
                     </slot>
                 </div>
@@ -32,5 +32,4 @@
 </template>
 
 <script setup lang="ts">
-import { Trees } from 'lucide-vue-next'
 </script>

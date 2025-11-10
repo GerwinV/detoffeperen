@@ -5,25 +5,17 @@
             <div class="flex flex-col md:flex-row h-full">
                 <!-- Left Side - Image -->
                 <div class="relative w-full md:w-3/5 h-1/2 md:h-full">
-                    <!-- Placeholder background image - replace with actual image -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-[rgb(var(--color-background))] to-[rgb(var(--color-background)/0.8)]">
-                        <!-- Placeholder for reed/natural material image -->
-                        <div class="absolute inset-0 flex items-center justify-center text-[rgb(var(--color-text)/0.2)]">
-                            <Trees class="w-32 h-32" />
-                        </div>
-                    </div>
+                    <!-- Hero background image -->
+                    <NuxtImg
+                        src="/images/kwekerij.jpg"
+                        alt="Kwekerij de Toffe Peren"
+                        class="absolute inset-0 w-full h-full object-cover"
+                    />
 
                     <!-- Circular Logo Badge - Positioned to overlap -->
                     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 md:bottom-1/2 md:right-0 md:left-auto md:translate-y-1/2 md:translate-x-1/2 z-10">
-                        <div class="bg-white rounded-full p-6 shadow-2xl w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="font-bold text-[rgb(var(--color-text))] text-sm uppercase tracking-wider mb-1">Toffe Peren</div>
-                                <div class="flex justify-center my-2">
-                                    <PearIcon class="w-16 h-16 md:w-20 md:h-20 text-primary" />
-                                </div>
-                                <div class="text-xs text-[rgb(var(--color-text)/0.7)]">est. 2020</div>
-                                <div class="text-xs text-[rgb(var(--color-text)/0.7)] mt-1">regeneratieve kwekerij</div>
-                            </div>
+                        <div class="bg-white rounded-full p-6 shadow-2xl w-40 h-40 md:w-60 md:h-60 flex items-center justify-center">
+                            <img src="/logo/logo.png" alt="de Toffe Peren" class="w-full h-full object-contain" />
                         </div>
                     </div>
                 </div>
@@ -74,11 +66,7 @@
                     <!-- Appelbomen -->
                     <NuxtLink to="/shop/appelbomen" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-200">
                         <div class="relative aspect-[4/3] overflow-hidden">
-                            <NuxtImg
-                                src="/images/appel-fruit.jpg"
-                                alt="Appelbomen"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                            />
+                            <NuxtImg src="/images/appel-fruit.jpg" alt="Appelbomen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
                         </div>
                         <div class="p-4 flex items-center justify-between">
                             <span class="font-semibold text-[rgb(var(--color-text))] group-hover:text-primary transition-colors">Appelbomen</span>
@@ -89,11 +77,7 @@
                     <!-- Nashiperen -->
                     <NuxtLink to="/shop/nashi-peren" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-200">
                         <div class="relative aspect-[4/3] overflow-hidden">
-                            <NuxtImg
-                                src="/images/nashi-fruit.jpg"
-                                alt="Nashiperen"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                            />
+                            <NuxtImg src="/images/nashi-fruit.jpg" alt="Nashiperen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
                         </div>
                         <div class="p-4 flex items-center justify-between">
                             <span class="font-semibold text-[rgb(var(--color-text))] group-hover:text-primary transition-colors">Nashiperen</span>
@@ -104,11 +88,7 @@
                     <!-- Perenbomen -->
                     <NuxtLink to="/shop/perenbomen" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-200">
                         <div class="relative aspect-[4/3] overflow-hidden">
-                            <NuxtImg
-                                src="/images/peer-fruit.jpeg"
-                                alt="Perenbomen"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                            />
+                            <NuxtImg src="/images/peer-fruit.jpeg" alt="Perenbomen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
                         </div>
                         <div class="p-4 flex items-center justify-between">
                             <span class="font-semibold text-[rgb(var(--color-text))] group-hover:text-primary transition-colors">Perenbomen</span>
@@ -133,6 +113,5 @@
 </template>
 
 <script setup lang="ts">
-import { Trees, ChevronRight } from 'lucide-vue-next'
-import PearIcon from '~/components/icons/PearIcon.vue'
+import { ChevronRight } from 'lucide-vue-next'
 </script>

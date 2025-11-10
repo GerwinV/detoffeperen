@@ -2,9 +2,8 @@
     <header class="bg-white shadow-sm sticky top-0 z-40">
         <div class="container">
             <div class="flex items-center justify-between h-16">
-                <NuxtLink to="/" class="flex items-center space-x-3">
-                    <PearIcon class="h-8 w-8 text-[rgb(var(--color-text))]" />
-                    <span class="text-xl font-bold text-[rgb(var(--color-text))] font-playfair">de Toffe Peren</span>
+                <NuxtLink to="/" class="flex items-center">
+                    <img src="/logo/logo.png" alt="de Toffe Peren" class="h-12 w-auto object-contain" />
                 </NuxtLink>
 
                 <!-- Desktop Navigation -->
@@ -39,7 +38,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Menu, X } from 'lucide-vue-next'
-import PearIcon from '~/components/icons/PearIcon.vue'
 
 const mobileMenuOpen = ref(false)
 

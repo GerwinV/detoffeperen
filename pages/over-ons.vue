@@ -3,10 +3,11 @@
         <!-- Hero Section -->
         <PageHero>
             <template #image>
-                <!-- TODO: Replace with actual image of person walking through tree rows -->
-                <div class="absolute inset-0 flex items-center justify-center text-[rgb(var(--color-text)/0.2)]">
-                    <Trees class="w-32 h-32" />
-                </div>
+                <NuxtImg
+                    src="/images/wie-header.jpg"
+                    alt="Over ons"
+                    class="absolute inset-0 w-full h-full object-cover"
+                />
             </template>
         </PageHero>
 
@@ -29,9 +30,13 @@
                     <!-- Right Side - Image -->
                     <div class="w-full md:w-1/2 flex justify-center">
                         <div class="relative w-64 h-64 md:w-80 md:h-80">
-                            <!-- TODO: Replace with actual circular image of person working with plants -->
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center overflow-hidden">
-                                <User class="w-32 h-32 text-[rgb(var(--color-text)/0.3)]" />
+                            <div class="absolute inset-0 overflow-hidden shadow-lg" style="border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;">
+                                <NuxtImg
+                                    src="/images/jw.jpeg"
+                                    alt="Team member"
+                                    class="w-full h-full object-cover"
+                                    style="object-position: center 30%;"
+                                />
                             </div>
                         </div>
                     </div>
@@ -74,9 +79,13 @@
                     <!-- Left Side - Image -->
                     <div class="w-full md:w-1/2 flex justify-center">
                         <div class="relative w-64 h-64 md:w-80 md:h-80">
-                            <!-- TODO: Replace with actual circular image of person planting -->
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center overflow-hidden">
-                                <Sprout class="w-32 h-32 text-[rgb(var(--color-text)/0.3)]" />
+                            <div class="absolute inset-0 overflow-hidden shadow-lg" style="border-radius: 45% 55% 48% 52% / 58% 44% 56% 42%;">
+                                <NuxtImg
+                                    src="/images/gv.jpg"
+                                    alt="Team member"
+                                    class="w-full h-full object-cover"
+                                    style="object-position: center 25%;"
+                                />
                             </div>
                         </div>
                     </div>
@@ -103,5 +112,4 @@
 </template>
 
 <script setup lang="ts">
-import { Trees, User, Sprout } from 'lucide-vue-next'
 </script>

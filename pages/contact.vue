@@ -3,10 +3,11 @@
         <!-- Hero Section -->
         <PageHero>
             <template #image>
-                <!-- TODO: Replace with actual contact image -->
-                <div class="absolute inset-0 flex items-center justify-center text-[rgb(var(--color-text)/0.2)]">
-                    <Mail class="w-32 h-32" />
-                </div>
+                <NuxtImg
+                    src="/images/contact.jpg"
+                    alt="Contact"
+                    class="absolute inset-0 w-full h-full object-cover"
+                />
             </template>
         </PageHero>
 
