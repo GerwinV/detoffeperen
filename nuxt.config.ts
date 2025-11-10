@@ -22,13 +22,11 @@ export default defineNuxtConfig({
     image: {
         quality: 80,
         format: ["webp"],
-        domains: ["localhost", "supabase.co"],
+        domains: ["localhost"],
     },
 
     runtimeConfig: {
         public: {
-            supabaseUrl: process.env.SUPABASE_URL || "",
-            supabaseAnonKey: process.env.SUPABASE_ANON_KEY || "",
             siteUrl: process.env.SITE_URL || "http://localhost:3000",
         },
     },
