@@ -68,7 +68,7 @@
 
                 <!-- Stock Message -->
                 <div class="text-center">
-                    <div class="inline-block bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg px-6 py-4 max-w-2xl shadow-sm">
+                    <div class="inline-block bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg px-6 py-4 max-w-5xl shadow-sm">
                         <p class="text-sm text-[rgb(var(--color-text))]">
                             Dit jaar hebben we nog een beperkte voorraad, neem
                             <NuxtLink to="/contact" class="text-primary font-semibold hover:underline">contact</NuxtLink>

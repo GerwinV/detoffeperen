@@ -30,8 +30,8 @@
             <div class="container">
                 <div v-if="categoryData">
                     <!-- Info message -->
-                    <div class="mb-8 text-center">
-                        <div class="inline-block bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg px-6 py-4 max-w-2xl shadow-sm">
+                    <div class="mb-8 text-center max-w-7xl">
+                        <div class="inline-block bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg px-6 py-4 max-w-7xl shadow-sm">
                             <p class="text-sm text-text">
                                 Dit jaar hebben we nog een beperkte voorraad, neem
                                 <NuxtLink to="/contact" class="text-primary font-semibold hover:underline">contact</NuxtLink>
@@ -49,12 +49,18 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
                         <div v-for="variety in categoryData.varieties" :key="variety.name" class="group bg-white rounded-lg shadow-sm border border-[rgb(var(--color-text)/0.1)] p-4 hover:shadow-lg hover:scale-[1.01] transition-all duration-200 cursor-pointer relative overflow-hidden" @click="openVarietyModal(variety)">
-                            <!-- Harvest time badge if available -->
-                            <div v-if="variety.harvestTime" class="absolute top-4 right-4">
-                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
-                                    {{ variety.harvestTime }}
-                                </span>
-                            </div>
+                            <!-- Favorite button -->
+                            <button @click.stop="toggleVarietyFavorite(variety)" :class="[
+                                'absolute top-4 right-4 z-10 p-2 rounded-full transition-all duration-200',
+                                isFavorited(variety.slug, route.params.category as string)
+                                    ? 'bg-red-50 text-red-600 hover:bg-red-100'
+                                    : 'bg-white/80 text-gray-400 hover:bg-white hover:text-red-600'
+                            ]" :title="isFavorited(variety.slug, route.params.category as string) ? 'Verwijder van favorieten' : 'Voeg toe aan favorieten'">
+                                <Heart :class="[
+                                    'w-5 h-5 transition-all',
+                                    isFavorited(variety.slug, route.params.category as string) && 'fill-current'
+                                ]" />
+                            </button>
 
                             <div class="pr-8">
                                 <h3 class="text-lg font-semibold text-text mb-3 group-hover:text-primary transition-colors">
@@ -120,13 +126,15 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronRight, Trees, Euro } from 'lucide-vue-next'
+import { ChevronRight, Trees, Euro, Heart } from 'lucide-vue-next'
 import { useTreeData } from '~/composables/useTreeData'
+import { useFavorites } from '~/composables/useFavorites'
 import VarietyModal from '~/components/VarietyModal.vue'
 import PriceTable from '~/components/PriceTable.vue'
 
 const route = useRoute()
 const { getCategoryBySlug } = useTreeData()
+const { isFavorited, toggleFavorite } = useFavorites()
 
 const showVarietyModal = ref(false)
 const selectedVariety = ref()
@@ -139,6 +147,17 @@ const categoryData = computed(() => {
 const openVarietyModal = (variety: any) => {
     selectedVariety.value = variety
     showVarietyModal.value = true
+}
+
+const toggleVarietyFavorite = (variety: any) => {
+    toggleFavorite({
+        name: variety.name,
+        slug: variety.slug,
+        category: route.params.category as string,
+        rootstocks: variety.rootstocks,
+        description: variety.description,
+        harvestTime: variety.harvestTime
+    })
 }
 
 // Set page meta

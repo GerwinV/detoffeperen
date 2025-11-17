@@ -73,8 +73,23 @@
           <PriceTable :category="category" />
         </div>
 
-        <!-- Action button -->
-        <div class="flex justify-end pt-4 border-t border-[rgb(var(--color-text)/0.1)]">
+        <!-- Action buttons -->
+        <div class="flex justify-between items-center pt-4 border-t border-[rgb(var(--color-text)/0.1)]">
+          <button
+            @click="handleToggleFavorite"
+            :class="[
+              'flex items-center gap-2 px-4 py-2 rounded-md font-medium transition-all duration-200',
+              isVarietyFavorited
+                ? 'bg-red-50 text-red-600 hover:bg-red-100'
+                : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
+            ]"
+          >
+            <Heart :class="[
+              'w-5 h-5 transition-all',
+              isVarietyFavorited && 'fill-current'
+            ]" />
+            <span>{{ isVarietyFavorited ? 'Verwijder favoriet' : 'Voeg toe aan favorieten' }}</span>
+          </button>
           <BaseButton
             variant="outline"
             @click="$emit('update:modelValue', false)"
@@ -88,10 +103,12 @@
 </template>
 
 <script setup lang="ts">
-import { Sprout, Trees, Calendar } from 'lucide-vue-next'
+import { computed } from 'vue'
+import { Sprout, Trees, Calendar, Heart } from 'lucide-vue-next'
 import PriceTable from '~/components/PriceTable.vue'
+import { useFavorites } from '~/composables/useFavorites'
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Boolean,
     required: true
@@ -107,4 +124,24 @@ defineProps({
 })
 
 defineEmits(['update:modelValue'])
+
+const { isFavorited, toggleFavorite } = useFavorites()
+
+const isVarietyFavorited = computed(() => {
+  if (!props.variety || !props.category) return false
+  return isFavorited(props.variety.slug, props.category)
+})
+
+const handleToggleFavorite = () => {
+  if (!props.variety || !props.category) return
+
+  toggleFavorite({
+    name: props.variety.name,
+    slug: props.variety.slug,
+    category: props.category,
+    rootstocks: props.variety.rootstocks,
+    description: props.variety.description,
+    harvestTime: props.variety.harvestTime
+  })
+}
 </script>
