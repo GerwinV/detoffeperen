@@ -31,17 +31,9 @@
 
                 <!-- Favorites Grid -->
                 <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
-                    <div
-                        v-for="favorite in favorites"
-                        :key="`${favorite.category}-${favorite.slug}`"
-                        class="group bg-white rounded-lg shadow-sm border border-[rgb(var(--color-text)/0.1)] p-4 hover:shadow-lg transition-all duration-200 relative overflow-hidden"
-                    >
+                    <div v-for="favorite in favorites" :key="`${favorite.category}-${favorite.slug}`" class="group bg-white rounded-lg shadow-sm border border-[rgb(var(--color-text)/0.1)] p-4 hover:shadow-lg transition-all duration-200 relative overflow-hidden">
                         <!-- Remove button -->
-                        <button
-                            @click="handleRemoveFavorite(favorite)"
-                            class="absolute top-4 right-4 z-10 p-2 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition-all duration-200"
-                            title="Verwijder van favorieten"
-                        >
+                        <button @click="handleRemoveFavorite(favorite)" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition-all duration-200" title="Verwijder van favorieten">
                             <X class="w-5 h-5" />
                         </button>
 
@@ -76,21 +68,14 @@
                                     Onderstammen:
                                 </p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span
-                                        v-for="rootstock in favorite.rootstocks"
-                                        :key="rootstock"
-                                        class="inline-block px-2.5 py-1 bg-[rgb(var(--color-primary)/0.15)] text-[rgb(var(--color-primary))] rounded-full text-xs font-medium border border-[rgb(var(--color-primary)/0.3)]"
-                                    >
+                                    <span v-for="rootstock in favorite.rootstocks" :key="rootstock" class="inline-block px-2.5 py-1 bg-[rgb(var(--color-primary)/0.15)] text-[rgb(var(--color-primary))] rounded-full text-xs font-medium border border-[rgb(var(--color-primary)/0.3)]">
                                         {{ rootstock }}
                                     </span>
                                 </div>
                             </div>
 
                             <!-- View Details Button -->
-                            <button
-                                @click="openVarietyModal(favorite)"
-                                class="inline-flex items-center text-sm font-medium text-primary hover:text-[rgb(var(--color-primary)/0.8)] transition-colors"
-                            >
+                            <button @click="openVarietyModal(favorite)" class="inline-flex items-center text-sm font-medium text-primary hover:text-[rgb(var(--color-primary)/0.8)] transition-colors">
                                 Bekijk details
                                 <ChevronRight class="w-4 h-4 ml-1" />
                             </button>
@@ -99,7 +84,7 @@
                 </div>
 
                 <!-- Email Text Section -->
-                <div v-if="favorites.length > 0" class="mt-12 max-w-3xl mx-auto">
+                <div v-if="favorites.length > 0" class="mt-12 max-w-7xl mx-auto">
                     <div class="bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg p-6 shadow-sm">
                         <h3 class="text-lg font-bold text-text mb-3">Kopieer voor e-mail</h3>
                         <p class="text-sm text-[rgb(var(--color-text)/0.7)] mb-4">
@@ -110,15 +95,12 @@
                         <div class="bg-[rgb(var(--color-background)/0.3)] rounded-lg p-4 mb-4 font-mono text-sm text-text whitespace-pre-wrap border border-[rgb(var(--color-text)/0.1)]">{{ emailText }}</div>
 
                         <!-- Copy Button -->
-                        <button
-                            @click="copyToClipboard"
-                            :class="[
-                                'w-full flex items-center justify-center gap-2 px-4 py-3 rounded-md font-medium transition-all duration-200',
-                                copied
-                                    ? 'bg-green-50 text-green-700 border-2 border-green-200'
-                                    : 'bg-primary text-white hover:bg-primary/90 border-2 border-primary'
-                            ]"
-                        >
+                        <button @click="copyToClipboard" :class="[
+                            'w-full flex items-center justify-center gap-2 px-4 py-3 rounded-md font-medium transition-all duration-200',
+                            copied
+                                ? 'bg-green-50 text-green-700 border-2 border-green-200'
+                                : 'bg-primary text-white hover:bg-primary/90 border-2 border-primary'
+                        ]">
                             <Check v-if="copied" class="w-5 h-5" />
                             <Copy v-else class="w-5 h-5" />
                             <span>{{ copied ? 'Gekopieerd!' : 'Kopieer naar klembord' }}</span>

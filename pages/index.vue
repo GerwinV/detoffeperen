@@ -7,11 +7,6 @@
                 <div class="relative w-full md:w-3/5 h-1/2 md:h-full">
                     <!-- Hero background image -->
                     <NuxtImg src="/images/kwekerij.jpg" alt="Kwekerij Toffe Peren" class="absolute inset-0 w-full h-full object-cover" />
-
-                    <!-- Logo - Centered in hero photo -->
-                    <div class="absolute inset-0 flex items-center justify-center z-10">
-                        <img src="/logo/logo.png" alt="Toffe Peren" class="w-48 md:w-64 h-auto object-contain drop-shadow-xl" />
-                    </div>
                 </div>
 
                 <!-- Right Side - Dark Green Panel -->
@@ -23,6 +18,15 @@
                             verantwoorde<br />
                             fruitbomen
                         </h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo - Centered within image section based on content width -->
+            <div class="absolute top-0 left-0 right-0 bottom-1/2 md:bottom-0 flex items-center z-10 pointer-events-none">
+                <div class="w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+                    <div class="w-full md:w-3/5 flex justify-center">
+                        <img src="/logo/logo.png" alt="Toffe Peren" class="w-48 md:w-64 h-auto object-contain drop-shadow-xl pointer-events-auto" />
                     </div>
                 </div>
             </div>
