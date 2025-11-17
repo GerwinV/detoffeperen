@@ -3,20 +3,41 @@
         <!-- Compact Header -->
         <section class="bg-white py-4 md:py-6 sticky top-0 z-10 shadow-sm">
             <div class="container">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                    <div>
-                        <!-- Breadcrumb navigation -->
-                        <div class="flex items-center text-sm text-[rgb(var(--color-text)/0.6)] mb-1">
-                            <NuxtLink to="/shop" class="hover:text-primary transition-colors">
-                                Assortiment
-                            </NuxtLink>
-                            <ChevronRight class="w-3 h-3 mx-1" />
-                            <span class="text-text font-medium">{{ categoryData?.name }}</span>
-                        </div>
-                        <p class="text-sm text-[rgb(var(--color-text)/0.7)] hidden md:block">
-                            {{ categoryData?.description }}
-                        </p>
+                <!-- Breadcrumb and description -->
+                <div class="mb-3">
+                    <!-- Breadcrumb navigation -->
+                    <div class="flex items-center text-sm text-[rgb(var(--color-text)/0.6)] mb-1">
+                        <NuxtLink to="/shop" class="hover:text-primary transition-colors">
+                            Assortiment
+                        </NuxtLink>
+                        <ChevronRight class="w-3 h-3 mx-1" />
+                        <span class="text-text font-medium">{{ categoryData?.name }}</span>
                     </div>
+                    <p class="text-sm text-[rgb(var(--color-text)/0.7)] hidden md:block">
+                        {{ categoryData?.description }}
+                    </p>
+                </div>
+
+                <!-- Category Tabs and Prijzen Button -->
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                    <!-- Category Tabs -->
+                    <div class="flex gap-2 flex-wrap">
+                        <NuxtLink
+                            v-for="category in categories"
+                            :key="category.slug"
+                            :to="`/shop/${category.slug}`"
+                            :class="[
+                                'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border-2',
+                                route.params.category === category.slug
+                                    ? 'bg-primary text-white border-primary'
+                                    : 'bg-white text-primary border-primary hover:bg-primary/10'
+                            ]"
+                        >
+                            {{ category.name }}
+                        </NuxtLink>
+                    </div>
+
+                    <!-- Prijzen Button -->
                     <BaseButton @click="showPriceModal = true" variant="primary" size="sm" class="self-start md:self-center inline-flex items-center whitespace-nowrap hover:!bg-white hover:!text-primary border-2 border-primary">
                         <Euro class="w-4 h-4 mr-1.5" />
                         <span>Prijzen</span>
@@ -29,17 +50,6 @@
         <section class="py-8 md:py-12">
             <div class="container">
                 <div v-if="categoryData">
-                    <!-- Info message -->
-                    <div class="mb-8 text-center max-w-7xl">
-                        <div class="inline-block bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg px-6 py-4 max-w-7xl shadow-sm">
-                            <p class="text-sm text-text">
-                                Dit jaar hebben we nog een beperkte voorraad, neem
-                                <NuxtLink to="/contact" class="text-primary font-semibold hover:underline">contact</NuxtLink>
-                                met ons op wanneer je interesse in een variëteit hebt.
-                            </p>
-                        </div>
-                    </div>
-
                     <!-- Variety count badge -->
                     <div class="mb-6 text-center">
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white text-text shadow-sm">
@@ -139,6 +149,13 @@ const { isFavorited, toggleFavorite } = useFavorites()
 const showVarietyModal = ref(false)
 const selectedVariety = ref()
 const showPriceModal = ref(false)
+
+// Available categories for navigation
+const categories = [
+    { name: 'Appelbomen', slug: 'appelbomen' },
+    { name: 'Perenbomen', slug: 'perenbomen' },
+    { name: 'Nashi', slug: 'nashi-peren' }
+]
 
 const categoryData = computed(() => {
     return getCategoryBySlug(route.params.category as string)

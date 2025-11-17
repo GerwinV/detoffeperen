@@ -94,17 +94,45 @@
                         <!-- Email Text Display -->
                         <div class="bg-[rgb(var(--color-background)/0.3)] rounded-lg p-4 mb-4 font-mono text-sm text-text whitespace-pre-wrap border border-[rgb(var(--color-text)/0.1)]">{{ emailText }}</div>
 
-                        <!-- Copy Button -->
-                        <button @click="copyToClipboard" :class="[
-                            'w-full flex items-center justify-center gap-2 px-4 py-3 rounded-md font-medium transition-all duration-200',
-                            copied
-                                ? 'bg-green-50 text-green-700 border-2 border-green-200'
-                                : 'bg-primary text-white hover:bg-primary/90 border-2 border-primary'
-                        ]">
-                            <Check v-if="copied" class="w-5 h-5" />
-                            <Copy v-else class="w-5 h-5" />
-                            <span>{{ copied ? 'Gekopieerd!' : 'Kopieer naar klembord' }}</span>
-                        </button>
+                        <!-- Email Buttons -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <!-- Gmail Button -->
+                            <a
+                                :href="gmailUrl"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center gap-2 px-4 py-3 rounded-md font-medium transition-all duration-200 bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white"
+                            >
+                                <Mail class="w-5 h-5" />
+                                <span>Gmail</span>
+                            </a>
+
+                            <!-- Outlook Button -->
+                            <a
+                                :href="outlookUrl"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center gap-2 px-4 py-3 rounded-md font-medium transition-all duration-200 bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white"
+                            >
+                                <Mail class="w-5 h-5" />
+                                <span>Outlook</span>
+                            </a>
+
+                            <!-- Copy Button -->
+                            <button
+                                @click="copyToClipboard"
+                                :class="[
+                                    'flex items-center justify-center gap-2 px-4 py-3 rounded-md font-medium transition-all duration-200',
+                                    copied
+                                        ? 'bg-green-50 text-green-700 border-2 border-green-200'
+                                        : 'bg-primary text-white hover:bg-primary/90 border-2 border-primary'
+                                ]"
+                            >
+                                <Check v-if="copied" class="w-5 h-5" />
+                                <Copy v-else class="w-5 h-5" />
+                                <span>{{ copied ? 'Gekopieerd!' : 'Kopieer' }}</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -129,7 +157,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { Heart, X, Calendar, ChevronRight, Copy, Check } from 'lucide-vue-next'
+import { Heart, X, Calendar, ChevronRight, Copy, Check, Mail } from 'lucide-vue-next'
 import { useFavorites } from '~/composables/useFavorites'
 import type { Favorite } from '~/composables/useFavorites'
 import VarietyModal from '~/components/VarietyModal.vue'
@@ -173,6 +201,24 @@ const emailText = computed(() => {
     })
 
     return text
+})
+
+// Generate Gmail compose URL
+const gmailUrl = computed(() => {
+    const subject = 'Interesse in variëteiten'
+    const body = emailText.value
+    const to = 'info@kwekerijtoffeperen.nl'
+
+    return `https://mail.google.com/mail/?to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&tf=cm`
+})
+
+// Generate Outlook compose URL
+const outlookUrl = computed(() => {
+    const subject = 'Interesse in variëteiten'
+    const body = emailText.value
+    const to = 'info@kwekerijtoffeperen.nl'
+
+    return `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(to)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 })
 
 // Copy to clipboard

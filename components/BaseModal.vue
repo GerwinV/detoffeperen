@@ -29,6 +29,15 @@
               v-if="modelValue"
               :class="modalClasses"
             >
+              <!-- Close button (X) -->
+              <button
+                @click="close()"
+                class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 text-gray-400 hover:bg-white hover:text-gray-600 transition-all duration-200 shadow-sm"
+                title="Sluiten"
+              >
+                <X class="w-5 h-5" />
+              </button>
+
               <div v-if="$slots.header || title" class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <div class="sm:flex sm:items-start">
                   <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
@@ -58,6 +67,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { X } from 'lucide-vue-next'
 
 interface Props {
   modelValue: boolean
