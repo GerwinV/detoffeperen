@@ -65,6 +65,14 @@
           </div>
         </div>
 
+        <!-- Prices -->
+        <div v-if="category">
+          <h3 class="text-sm font-semibold text-[rgb(var(--color-text)/0.6)] uppercase tracking-wide mb-3">
+            Prijzen
+          </h3>
+          <PriceTable :category="category" />
+        </div>
+
         <!-- Action button -->
         <div class="flex justify-end pt-4 border-t border-[rgb(var(--color-text)/0.1)]">
           <BaseButton
@@ -81,6 +89,7 @@
 
 <script setup lang="ts">
 import { Sprout, Trees, Calendar } from 'lucide-vue-next'
+import PriceTable from '~/components/PriceTable.vue'
 
 defineProps({
   modelValue: {
@@ -89,6 +98,10 @@ defineProps({
   },
   variety: {
     type: Object,
+    default: null
+  },
+  category: {
+    type: String,
     default: null
   }
 })

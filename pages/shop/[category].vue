@@ -17,6 +17,10 @@
                             {{ categoryData?.description }}
                         </p>
                     </div>
+                    <BaseButton @click="showPriceModal = true" variant="outline" size="sm" class="self-start md:self-center inline-flex items-center whitespace-nowrap">
+                        <Euro class="w-4 h-4 mr-1.5" />
+                        <span>Prijzen</span>
+                    </BaseButton>
                 </div>
             </div>
         </section>
@@ -101,20 +105,32 @@
         </section>
 
         <!-- Variety Modal -->
-        <VarietyModal v-model="showVarietyModal" :variety="selectedVariety" />
+        <VarietyModal v-model="showVarietyModal" :variety="selectedVariety" :category="route.params.category as string" />
+
+        <!-- Price Modal -->
+        <BaseModal v-model="showPriceModal">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold font-playfair text-text mb-4">
+                    Prijzen {{ categoryData?.name }}
+                </h2>
+                <PriceTable :category="route.params.category as string" />
+            </div>
+        </BaseModal>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ChevronRight, Trees } from 'lucide-vue-next'
+import { ChevronRight, Trees, Euro } from 'lucide-vue-next'
 import { useTreeData } from '~/composables/useTreeData'
 import VarietyModal from '~/components/VarietyModal.vue'
+import PriceTable from '~/components/PriceTable.vue'
 
 const route = useRoute()
 const { getCategoryBySlug } = useTreeData()
 
 const showVarietyModal = ref(false)
 const selectedVariety = ref()
+const showPriceModal = ref(false)
 
 const categoryData = computed(() => {
     return getCategoryBySlug(route.params.category as string)
