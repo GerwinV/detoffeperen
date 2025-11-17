@@ -197,7 +197,7 @@ const faqs = [
     },
     {
         question: 'Leveren jullie door heel Nederland?',
-        answer: 'Op dit moment is afhalen alleen mogelijk.'
+        answer: 'Voor grotere bestelling is er een mogelijkheid tot afleveren in Groningen / Drenthe / Friesland. Afhalen is mogelijk in Eelde of Peize.'
     },
     {
         question: 'Wanneer is de beste tijd om fruitbomen te planten?',

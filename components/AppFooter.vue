@@ -17,7 +17,7 @@
                     <h3 class="font-bold text-lg mb-4 uppercase tracking-wide">Afhalen</h3>
                     <div class="text-sm text-white/80 space-y-1">
                         <p>Alleen op afspraak</p>
-                        <!-- <p>Hornweg Peize</p> -->
+                        <p>Peize / Eelde (Drenthe)</p>
                         <!-- <p class="mt-2">Bel: <a href="tel:+31682743434" class="hover:text-white transition-colors">06 8274 3434</a></p> -->
                         <p class="mt-2">E-mail: <a :href="`mailto:${companyInfo.email}`" class="hover:text-white transition-colors">{{ companyInfo.email }}</a> </p>
                     </div>
