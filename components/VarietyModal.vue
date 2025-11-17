@@ -50,7 +50,7 @@
               <Sprout class="w-5 h-5 mr-2" />
               <span class="font-semibold text-text">Ecologisch verantwoord gekweekt</span>
             </div>
-            <p class="text-sm text-[rgb(var(--color-text)/0.7)]">
+            <p class="text-sm text-[rgb(var(--color-text)/0.7)] break-words">
               Zonder bestrijdingsmiddelen of kunstmest
             </p>
           </div>
@@ -65,20 +65,11 @@
           </div>
         </div>
 
-        <!-- Action buttons -->
-        <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[rgb(var(--color-text)/0.1)]">
-          <BaseButton
-            href="https://docs.google.com/spreadsheets/d/1234567890/edit"
-            target="_blank"
-            variant="primary"
-            class="flex-1 inline-flex items-center justify-center"
-          >
-            <ExternalLink class="w-4 h-4 mr-2" />Bekijk actuele voorraad
-          </BaseButton>
+        <!-- Action button -->
+        <div class="flex justify-end pt-4 border-t border-[rgb(var(--color-text)/0.1)]">
           <BaseButton
             variant="outline"
             @click="$emit('update:modelValue', false)"
-            class="flex-1"
           >
             Sluiten
           </BaseButton>
@@ -89,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { ExternalLink, Sprout, Trees, Calendar } from 'lucide-vue-next'
+import { Sprout, Trees, Calendar } from 'lucide-vue-next'
 
 defineProps({
   modelValue: {

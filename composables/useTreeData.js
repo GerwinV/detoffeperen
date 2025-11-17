@@ -3,7 +3,7 @@ export const useTreeData = () => {
         appelbomen: {
             name: "Appelbomen",
             slug: "appelbomen",
-            description: "Onze collectie appelbomen, gekweekt zonder bestrijdingsmiddelen",
+            description: "Onze collectie appelbomen, gekweekt zonder bestrijdingsmiddelen en kunstmest",
             image: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop",
             varieties: [
                 {
@@ -103,7 +103,7 @@ export const useTreeData = () => {
         perenbomen: {
             name: "Perenbomen",
             slug: "perenbomen",
-            description: "Diverse perenvariëteiten, onze specialiteit sinds het begin",
+            description: "Diverse perenvariëteiten, gekweekt zonder bestrijdingsmiddelen en kunstmest",
             image: "https://images.unsplash.com/photo-1514756331096-242fdeb70d4a?w=400&h=300&fit=crop",
             varieties: [
                 {
@@ -200,7 +200,8 @@ export const useTreeData = () => {
         "nashi-peren": {
             name: "Nashi Peren",
             slug: "nashi-peren",
-            description: "Aziatische peren met een knapperige textuur",
+            description:
+                "Aziatische peren met een knapperige textuur, gekweekt zonder bestrijdingsmiddelen en kunstmest",
             image: "https://images.unsplash.com/photo-1514756331096-242fdeb70d4a?w=400&h=300&fit=crop",
             varieties: [
                 {

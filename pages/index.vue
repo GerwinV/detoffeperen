@@ -10,7 +10,7 @@
 
                     <!-- Circular Logo Badge - Positioned to overlap -->
                     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 md:bottom-1/2 md:right-0 md:left-auto md:translate-y-1/2 md:translate-x-1/2 z-10">
-                        <div class="bg-white rounded-full p-6 shadow-2xl w-40 h-40 md:w-60 md:h-60 flex items-center justify-center">
+                        <div class="bg-white rounded-full p-2 shadow-2xl w-40 h-40 md:w-60 md:h-60 flex items-center justify-center">
                             <img src="/logo/logo.png" alt="Toffe Peren" class="w-full h-full object-contain" />
                         </div>
                     </div>

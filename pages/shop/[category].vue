@@ -17,10 +17,6 @@
                             {{ categoryData?.description }}
                         </p>
                     </div>
-                    <BaseButton href="https://docs.google.com/spreadsheets/d/1234567890/edit" target="_blank" variant="outline" size="sm" class="self-start md:self-center inline-flex items-center whitespace-nowrap">
-                        <ExternalLink class="w-4 h-4 mr-1.5" />
-                        <span>Voorraad</span>
-                    </BaseButton>
                 </div>
             </div>
         </section>
@@ -61,12 +57,27 @@
                                     {{ variety.name }}
                                 </h3>
 
-                                <div class="space-y-2">
+                                <!-- Description -->
+                                <p class="text-sm text-[rgb(var(--color-text)/0.8)] mb-4 line-clamp-3">
+                                    {{ variety.description }}
+                                </p>
+
+                                <div class="space-y-2 mb-4">
                                     <p class="text-xs font-medium text-[rgb(var(--color-text)/0.6)] uppercase tracking-wider">Onderstammen:</p>
                                     <div class="flex flex-wrap gap-2">
                                         <span v-for="rootstock in variety.rootstocks" :key="rootstock" class="inline-block px-2.5 py-1 bg-[rgb(var(--color-primary)/0.15)] text-[rgb(var(--color-primary))] rounded-full text-xs font-medium border border-[rgb(var(--color-primary)/0.3)]">
                                             {{ rootstock }}
                                         </span>
+                                    </div>
+                                </div>
+
+                                <!-- Info box -->
+                                <div class="mb-8">
+                                    <div class="bg-[rgb(var(--color-background)/0.3)] rounded-lg p-2">
+                                        <div class="flex items-center text-primary">
+                                            <Trees class="w-4 h-4 mr-1.5" />
+                                            <span class="text-xs font-semibold text-text">Spil, ongesnoeid</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +106,7 @@
 </template>
 
 <script setup lang="ts">
-import { ExternalLink, ChevronRight } from 'lucide-vue-next'
+import { ChevronRight, Trees } from 'lucide-vue-next'
 import { useTreeData } from '~/composables/useTreeData'
 import VarietyModal from '~/components/VarietyModal.vue'
 
