@@ -1,9 +1,15 @@
 <template>
-    <header class="bg-white shadow-sm sticky top-0 z-40">
+    <header class="bg-white shadow-sm sticky top-0 z-40 transition-all duration-300">
         <div class="container">
-            <div class="flex items-center justify-between h-16">
+            <div :class="[
+                'flex items-center justify-between transition-all duration-300',
+                isScrolled ? 'h-16' : 'h-24'
+            ]">
                 <NuxtLink to="/" class="flex items-center">
-                    <img src="/logo/logo.png" alt="Toffe Peren" class="h-12 w-auto object-contain" />
+                    <img src="/logo/Logo-Toffe-Peren_trans.png" alt="Toffe Peren" :class="[
+                        'w-auto object-contain transition-all duration-300',
+                        isScrolled ? 'h-12' : 'h-16'
+                    ]" />
                 </NuxtLink>
 
                 <!-- Desktop Navigation -->
@@ -36,10 +42,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Menu, X } from 'lucide-vue-next'
 
 const mobileMenuOpen = ref(false)
+const isScrolled = ref(false)
 
 const navigationItems = [
     { name: 'Home', path: '/' },
@@ -47,4 +54,17 @@ const navigationItems = [
     { name: 'Over ons', path: '/over-ons' },
     { name: 'Contact', path: '/contact' }
 ]
+
+const handleScroll = () => {
+    isScrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
+    handleScroll() // Check initial scroll position
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+})
 </script>

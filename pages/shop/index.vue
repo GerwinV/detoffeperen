@@ -16,7 +16,7 @@
                     </h2>
                     <div class="space-y-4 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
-                            Bij kwekerij Toffe Peren vind je fruitbomen die speciaal geschikt zijn voor voedselbossen en grote eetbare tuinen. Momenteel richten we ons op appels, peren en nashi-peren, allemaal geënt op sterke onderstammen en geselecteerd voor een robuuste groei en lange levensduur. Deze bomen zijn ideaal voor projecten die decennia meegaan en een echt ecosysteem willen opbouwen. Voor kleine stadstuintjes of kortlevende plantingen zijn ze minder geschikt.
+                            Bij kwekerij Toffe Peren vind je fruitbomen die speciaal geschikt zijn voor voedselbossen en grote eetbare tuinen. Momenteel richten we ons op appels, peren en nashi-peren, allemaal geënt op sterke onderstammen en geselecteerd voor een robuuste groei en lange levensduur. Deze bomen zijn ideaal voor projecten die decennia meegaan en een echt ecosysteem willen opbouwen.
                         </p>
                     </div>
                 </div>

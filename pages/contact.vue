@@ -36,7 +36,7 @@
 
                     <!-- Contact Information -->
                     <div>
-                        <h2 class="text-2xl font-bold font-playfair mb-6 text-text">Contactgegevens</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold text-text mb-6 uppercase tracking-wide">Contactgegevens</h2>
 
                         <div class="space-y-6">
                             <!-- Address -->
@@ -141,7 +141,7 @@
         <!-- FAQ Section -->
         <section class="py-16 md:py-24 bg-white">
             <div class="container max-w-3xl">
-                <h2 class="text-2xl font-bold font-playfair text-center mb-8 text-text">Veelgestelde Vragen</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-text text-center mb-8 uppercase tracking-wide">Veelgestelde Vragen</h2>
                 <div class="space-y-4">
                     <BaseCard v-for="(faq, index) in faqs" :key="index">
                         <button @click="toggleFaq(index)" class="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">

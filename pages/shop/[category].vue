@@ -17,7 +17,7 @@
                             {{ categoryData?.description }}
                         </p>
                     </div>
-                    <BaseButton @click="showPriceModal = true" variant="outline" size="sm" class="self-start md:self-center inline-flex items-center whitespace-nowrap">
+                    <BaseButton @click="showPriceModal = true" variant="primary" size="sm" class="self-start md:self-center inline-flex items-center whitespace-nowrap hover:!bg-white hover:!text-primary border-2 border-primary">
                         <Euro class="w-4 h-4 mr-1.5" />
                         <span>Prijzen</span>
                     </BaseButton>
