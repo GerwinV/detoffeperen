@@ -6,16 +6,12 @@
                 <!-- Left Side - Image -->
                 <div class="relative w-full md:w-3/5 h-1/2 md:h-full">
                     <!-- Hero background image -->
-                    <NuxtImg
-                        src="/images/kwekerij.jpg"
-                        alt="Kwekerij de Toffe Peren"
-                        class="absolute inset-0 w-full h-full object-cover"
-                    />
+                    <NuxtImg src="/images/kwekerij.jpg" alt="Kwekerij Toffe Peren" class="absolute inset-0 w-full h-full object-cover" />
 
                     <!-- Circular Logo Badge - Positioned to overlap -->
                     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 md:bottom-1/2 md:right-0 md:left-auto md:translate-y-1/2 md:translate-x-1/2 z-10">
                         <div class="bg-white rounded-full p-6 shadow-2xl w-40 h-40 md:w-60 md:h-60 flex items-center justify-center">
-                            <img src="/logo/logo.png" alt="de Toffe Peren" class="w-full h-full object-contain" />
+                            <img src="/logo/logo.png" alt="Toffe Peren" class="w-full h-full object-contain" />
                         </div>
                     </div>
                 </div>

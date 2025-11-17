@@ -3,7 +3,7 @@
         <div class="container">
             <div class="flex items-center justify-between h-16">
                 <NuxtLink to="/" class="flex items-center">
-                    <img src="/logo/logo.png" alt="de Toffe Peren" class="h-12 w-auto object-contain" />
+                    <img src="/logo/logo.png" alt="Toffe Peren" class="h-12 w-auto object-contain" />
                 </NuxtLink>
 
                 <!-- Desktop Navigation -->

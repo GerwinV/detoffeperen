@@ -3,11 +3,7 @@
         <!-- Hero Section -->
         <PageHero>
             <template #image>
-                <NuxtImg
-                    src="/images/wie-header.jpg"
-                    alt="Over ons"
-                    class="absolute inset-0 w-full h-full object-cover"
-                />
+                <NuxtImg src="/images/wie-header.jpg" alt="Over ons" class="absolute inset-0 w-full h-full object-cover" />
             </template>
         </PageHero>
 
@@ -22,7 +18,7 @@
                         </h2>
                         <div class="space-y-4 text-[rgb(var(--color-text))]">
                             <p class="leading-relaxed">
-                                De Toffe Peren is ontstaan uit een simpele constatering: er zijn te weinig sterke, gezonde fruitbomen beschikbaar voor voedselbossen. Wij zijn twee beheerders van voedselbosprojecten die besloten dat we het zelf gingen doen. Niet wachten, maar actie ondernemen. Zo begonnen we met het enten van appels, peren en nashi-peren, en groeide onze kleine experimentkweek uit tot een volwaardige kwekerij.
+                                Kwekerij Toffe Peren is ontstaan uit een simpele constatering: er zijn te weinig sterke, gezonde fruitbomen beschikbaar voor voedselbossen. Wij zijn twee beheerders van voedselbosprojecten die besloten dat we het zelf gingen doen. Niet wachten, maar actie ondernemen. Zo begonnen we met het enten van appels, peren en nashi-peren, en groeide onze kleine experimentkweek uit tot een volwaardige kwekerij.
                             </p>
                         </div>
                     </div>
@@ -31,12 +27,7 @@
                     <div class="w-full md:w-1/2 flex justify-center">
                         <div class="relative w-64 h-64 md:w-80 md:h-80">
                             <div class="absolute inset-0 overflow-hidden shadow-lg" style="border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;">
-                                <NuxtImg
-                                    src="/images/jw.jpeg"
-                                    alt="Team member"
-                                    class="w-full h-full object-cover"
-                                    style="object-position: center 30%;"
-                                />
+                                <NuxtImg src="/images/jw.jpeg" alt="Team member" class="w-full h-full object-cover" style="object-position: center 30%;" />
                             </div>
                         </div>
                     </div>
@@ -80,12 +71,7 @@
                     <div class="w-full md:w-1/2 flex justify-center">
                         <div class="relative w-64 h-64 md:w-80 md:h-80">
                             <div class="absolute inset-0 overflow-hidden shadow-lg" style="border-radius: 45% 55% 48% 52% / 58% 44% 56% 42%;">
-                                <NuxtImg
-                                    src="/images/gv.jpg"
-                                    alt="Team member"
-                                    class="w-full h-full object-cover"
-                                    style="object-position: center 25%;"
-                                />
+                                <NuxtImg src="/images/gv.jpg" alt="Team member" class="w-full h-full object-cover" style="object-position: center 25%;" />
                             </div>
                         </div>
                     </div>

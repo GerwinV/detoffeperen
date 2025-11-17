@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center gap-4">
-        <a href="#" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors duration-200" aria-label="Instagram">
+        <a href="https://www.instagram.com/kwekerijtoffeperen/" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors duration-200" aria-label="Instagram">
             <Instagram class="w-5 h-5" />
         </a>
         <!-- <a href="#" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-white transition-colors duration-200" aria-label="Facebook">

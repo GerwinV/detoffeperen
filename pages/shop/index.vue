@@ -3,11 +3,7 @@
         <!-- Hero Section -->
         <PageHero>
             <template #image>
-                <NuxtImg
-                    src="/images/assortiment.jpeg"
-                    alt="Assortiment"
-                    class="absolute inset-0 w-full h-full object-cover"
-                />
+                <NuxtImg src="/images/assortiment.jpeg" alt="Assortiment" class="absolute inset-0 w-full h-full object-cover" />
             </template>
         </PageHero>
 
@@ -20,7 +16,7 @@
                     </h2>
                     <div class="space-y-4 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
-                            Bij De Toffe Peren vind je fruitbomen die speciaal geschikt zijn voor voedselbossen en grote eetbare tuinen. Momenteel richten we ons op appels, peren en nashi-peren, allemaal geënt op sterke onderstammen en geselecteerd voor een robuuste groei en lange levensduur. Deze bomen zijn ideaal voor projecten die decennia meegaan en een echt ecosysteem willen opbouwen. Voor kleine stadstuintjes of kortlevende plantingen zijn ze minder geschikt.
+                            Bij kwekerij Toffe Peren vind je fruitbomen die speciaal geschikt zijn voor voedselbossen en grote eetbare tuinen. Momenteel richten we ons op appels, peren en nashi-peren, allemaal geënt op sterke onderstammen en geselecteerd voor een robuuste groei en lange levensduur. Deze bomen zijn ideaal voor projecten die decennia meegaan en een echt ecosysteem willen opbouwen. Voor kleine stadstuintjes of kortlevende plantingen zijn ze minder geschikt.
                         </p>
                     </div>
                 </div>
@@ -39,11 +35,7 @@
                     <!-- Appelbomen -->
                     <NuxtLink to="/shop/appelbomen" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-200">
                         <div class="relative aspect-[4/3] overflow-hidden">
-                            <NuxtImg
-                                src="/images/appel-fruit.jpg"
-                                alt="Appelbomen"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                            />
+                            <NuxtImg src="/images/appel-fruit.jpg" alt="Appelbomen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
                         </div>
                         <div class="p-4 flex items-center justify-between">
                             <span class="font-semibold text-[rgb(var(--color-text))] group-hover:text-primary transition-colors">Appelbomen</span>
@@ -54,11 +46,7 @@
                     <!-- Nashiperen -->
                     <NuxtLink to="/shop/nashi-peren" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-200">
                         <div class="relative aspect-[4/3] overflow-hidden">
-                            <NuxtImg
-                                src="/images/nashi-fruit.jpg"
-                                alt="Nashiperen"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                            />
+                            <NuxtImg src="/images/nashi-fruit.jpg" alt="Nashiperen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
                         </div>
                         <div class="p-4 flex items-center justify-between">
                             <span class="font-semibold text-[rgb(var(--color-text))] group-hover:text-primary transition-colors">Nashiperen</span>
@@ -69,11 +57,7 @@
                     <!-- Perenbomen -->
                     <NuxtLink to="/shop/perenbomen" class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-200">
                         <div class="relative aspect-[4/3] overflow-hidden">
-                            <NuxtImg
-                                src="/images/peer-fruit.jpeg"
-                                alt="Perenbomen"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                            />
+                            <NuxtImg src="/images/peer-fruit.jpeg" alt="Perenbomen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
                         </div>
                         <div class="p-4 flex items-center justify-between">
                             <span class="font-semibold text-[rgb(var(--color-text))] group-hover:text-primary transition-colors">Perenbomen</span>

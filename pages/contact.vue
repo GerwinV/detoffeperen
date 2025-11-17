@@ -3,11 +3,7 @@
         <!-- Hero Section -->
         <PageHero>
             <template #image>
-                <NuxtImg
-                    src="/images/contact.jpg"
-                    alt="Contact"
-                    class="absolute inset-0 w-full h-full object-cover"
-                />
+                <NuxtImg src="/images/contact.jpg" alt="Contact" class="absolute inset-0 w-full h-full object-cover" />
             </template>
         </PageHero>
 
@@ -197,7 +193,7 @@ const activeFaq = ref<number | null>(null)
 const faqs = [
     {
         question: 'Kan ik de kwekerij bezoeken?',
-        answer: 'Neem daarvoor contact met ons op via ons emailadres.'
+        answer: 'Neem daarvoor contact met ons op via ons e-mailadres.'
     },
     {
         question: 'Leveren jullie door heel Nederland?',

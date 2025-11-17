@@ -17,18 +17,21 @@
                     <h3 class="font-bold text-lg mb-4 uppercase tracking-wide">Afhalen</h3>
                     <div class="text-sm text-white/80 space-y-1">
                         <p>Alleen op afspraak</p>
-                        <p>Hornweg Peize</p>
+                        <!-- <p>Hornweg Peize</p> -->
                         <!-- <p class="mt-2">Bel: <a href="tel:+31682743434" class="hover:text-white transition-colors">06 8274 3434</a></p> -->
+                        <p class="mt-2">E-mail: <a :href="`mailto:${companyInfo.email}`" class="hover:text-white transition-colors">{{ companyInfo.email }}</a> </p>
                     </div>
                 </div>
 
-                <!-- TOFFE PEREN - Company Info (Column 3 - duplicate as per mockup) -->
+                <!-- SAMENWERKING - Partnership Info -->
                 <div>
-                    <h3 class="font-bold text-lg mb-4 uppercase tracking-wide">{{ companyInfo.name }}</h3>
-                    <p class="text-sm text-white/80 mb-2">{{ companyInfo.tagline }}</p>
-                    <a :href="`mailto:${companyInfo.email}`" class="text-sm text-white/80 hover:text-white transition-colors">
-                        {{ companyInfo.email }}
-                    </a>
+                    <h3 class="font-bold text-lg mb-4 uppercase tracking-wide">Samenwerking</h3>
+                    <p class="text-sm text-white/80">
+                        Wij zijn een samenwerking van
+                        <a href="https://voedselbospeize.nl/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Voedselbos Peize</a>
+                        en
+                        <a href="https://weeldenis.nl/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Voedselbos Weeldenis</a>.
+                    </p>
                 </div>
 
                 <!-- VOLG ONS - Social Media -->
@@ -45,7 +48,7 @@
                         <PearIcon class="h-8 w-8 text-white" />
                     </div>
                     <p class="text-sm text-white/70">
-                        copyright 2025 © de Toffe Peren
+                        copyright 2025 © kwekerij Toffe Peren
                     </p>
                 </div>
             </div>
