@@ -37,15 +37,22 @@
             <div class="container">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-2xl md:text-3xl font-bold text-[rgb(var(--color-dark))] mb-8 uppercase tracking-wide">
-                        Regeneratieve Fruitbomen
+                        Regeneratieve kwekerij
                     </h2>
 
                     <div class="space-y-6 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
-                            Wij kweken sterke, gezonde en toekomstbestendige fruitbomen voor voedselbossen en eetbare tuinen. Bij ons draait het om de bodem — zoals appels, peren en nashi — die niet alleen de bodem voeden, maar ook de biodiversiteit versterken en een veerkrachtig ecosysteem opbouwen.
+                            Bij Toffe Peren draait het om bomen die meer doen dan alleen fruit leveren. Onze bomen helpen de bodem herstellen, versterken biodiversiteit en bouwen mee aan een veerkrachtig ecosysteem. Zonder kunstmest of chemische bestrijdingsmiddelen, gewoon volgens de natuurlijke ritmes van het seizoen en de boom.
                         </p>
                         <p class="leading-relaxed">
-                            Wij geloven in een nieuwe manier van kweek, waarbij bomen opgroeien in levende, gezonde grond en onderdeel zijn van een regeneratief geheel. Zo leveren we bomen die klaar zijn voor de toekomst en dragen bij aan een landschap vol smaak, oogst en leven.
+                            We richten ons op fruitbomen die geschikt zijn voor echte voedselbosprojecten: groot genoeg om een volwassen boom te worden, robuust genoeg om tientallen jaren mee te gaan, en geënt op onderstammen die hun groei en weerbaarheid ondersteunen. Voor nu ligt onze focus op appels, peren en nashi-peren, maar we blijven kijken naar andere soorten die passen bij een regeneratieve aanpak.
+                        </p>
+                        <p class="leading-relaxed">
+                            Onze aanpak is praktisch en doordacht. Alles wat we doen, van enten tot uitplanten, is gericht op gezonde, sterke bomen. Zo leveren we bomen die klaar zijn om te planten, maar vooral ook klaar zijn om te blijven groeien.
+                        </p>
+                        <p class="leading-relaxed">
+                            Wil je meer weten over welke bomen we hebben en hoe je ze kunt bestellen? Bekijk ons assortiment of lees meer over hoe wij werken en waarom onze aanpak bijzonder is
+
                         </p>
                     </div>
                 </div>

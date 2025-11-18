@@ -12,11 +12,11 @@
             <div class="container">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6 uppercase tracking-wide">
-                        Ons Aanbod
+                        Onze bomen
                     </h2>
                     <div class="space-y-4 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
-                            Bij kwekerij Toffe Peren vind je fruitbomen die speciaal geschikt zijn voor voedselbossen en grote eetbare tuinen. Momenteel richten we ons op appels, peren en nashi-peren, allemaal geënt op sterke onderstammen en geselecteerd voor een robuuste groei en lange levensduur. Deze bomen zijn ideaal voor projecten die decennia meegaan en een echt ecosysteem willen opbouwen.
+                            Bij kwekerij Toffe Peren vind je fruitbomen die speciaal geschikt zijn voor voedselbossen, agroforestry-systemen en eetbare tuinen. Momenteel richten we ons op appels, peren en nashi-peren, allemaal geënt op sterkere onderstammen en geselecteerd voor een robuuste groei, goede productie en lange levensduur. Deze bomen zijn ideaal voor projecten die tientallen jaren meegaan en een veerkrachtig ecosysteem opbouwen. Mis je soorten of heb je suggesties, neem dan contact op.
                         </p>
                     </div>
                 </div>
@@ -89,7 +89,9 @@
 
                     <div class="space-y-8 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
-                            Je kunt ons aanbod bekijken via de website en een bestelling plaatsen door een mail te sturen met de gewenste soort, maat en aantallen. Wij nemen contact op om een afhaalmoment af te spreken. Omdat we onze bomen met de hand rooien en zorgvuldig voorbereiden, is vooraf bestellen aan te raden.
+                            Je kunt ons aanbod bekijken via de website en een bestelling plaatsen door een mail te sturen met de gewenste soort, maat en aantallen. Wij nemen contact op om een afhaalmoment af te spreken. Omdat we onze bomen met de hand rooien en zorgvuldig voorbereiden, is vooraf bestellen aanbevolen.
+
+                            TIP: tijdens het zoeken kun je favorieten aanmaken, en die lijst kun je vervolgens aan ons mailen.
                         </p>
 
                         <!-- WORTELGOED -->
@@ -101,9 +103,9 @@
                                 Wij verkopen onze bomen als wortelgoed. Dat betekent dat ze zonder aarde worden geleverd, tijdens hun winterrust (november–maart). Dit heeft meerdere voordelen:
                             </p>
                             <ul class="list-disc list-inside space-y-2 ml-4">
-                                <li>De boom is in rust en kan zonder stress worden verplant.</li>
+                                <li>De boom is in rust en kan met zo min mogelijk stress worden verplant.</li>
                                 <li>Wortels blijven actief en kunnen snel beginnen met inwortelen op de nieuwe plek.</li>
-                                <li>We beschermen zo de gezonde grond van onze kwekerij en houden bodemleven intact.</li>
+                                <li>We beschermen zo de gezonde grond van onze kwekerij (waar we zo hard voor werken) en houden het bodemleven zo intact mogelijk.</li>
                             </ul>
                         </div>
 
@@ -113,7 +115,7 @@
                                 Praktisch
                             </h3>
                             <p class="leading-relaxed">
-                                Afhalen kan op afspraak, omdat onze kwekerij midden in het voedselbos ligt. Voor meerdere bomen is een ruime auto handig, en neem plastic zakken of potgrondzakken mee om de wortels te beschermen tegen uitdrogen.
+                                Afhalen kan alleen op afspraak, omdat onze kwekerij midden in het voedselbos ligt. Voor meerdere bomen is een ruime auto handig, en neem plastic zakken of potgrondzakken mee om de wortels te beschermen tegen uitdrogen.
                             </p>
                         </div>
                     </div>
