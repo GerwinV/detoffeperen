@@ -7,9 +7,16 @@
                     <h1 class="text-3xl md:text-4xl font-bold text-text mb-4 uppercase tracking-wide">
                         Mijn Favorieten
                     </h1>
-                    <p class="text-[rgb(var(--color-text)/0.7)]">
-                        {{ favoritesCount }} {{ favoritesCount === 1 ? 'variëteit' : 'variëteiten' }} opgeslagen
-                    </p>
+                    <ClientOnly>
+                        <p class="text-[rgb(var(--color-text)/0.7)]">
+                            {{ favoritesCount }} {{ favoritesCount === 1 ? 'variëteit' : 'variëteiten' }} opgeslagen
+                        </p>
+                        <template #fallback>
+                            <p class="text-[rgb(var(--color-text)/0.7)]">
+                                Laden...
+                            </p>
+                        </template>
+                    </ClientOnly>
                 </div>
             </div>
         </section>
@@ -17,20 +24,21 @@
         <!-- Favorites Grid or Empty State -->
         <section class="py-12 md:py-16">
             <div class="container">
-                <!-- Empty State -->
-                <div v-if="favorites.length === 0" class="text-center py-12">
-                    <Heart class="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                    <h2 class="text-2xl font-bold text-text mb-2">Geen favorieten</h2>
-                    <p class="text-[rgb(var(--color-text)/0.7)] mb-6">
-                        Je hebt nog geen variëteiten toegevoegd aan je favorieten.
-                    </p>
-                    <BaseButton to="/shop" variant="primary">
-                        Bekijk Assortiment
-                    </BaseButton>
-                </div>
+                <ClientOnly>
+                    <!-- Empty State -->
+                    <div v-if="favorites.length === 0" class="text-center py-12">
+                        <Heart class="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                        <h2 class="text-2xl font-bold text-text mb-2">Geen favorieten</h2>
+                        <p class="text-[rgb(var(--color-text)/0.7)] mb-6">
+                            Je hebt nog geen variëteiten toegevoegd aan je favorieten.
+                        </p>
+                        <BaseButton to="/shop" variant="primary">
+                            Bekijk Assortiment
+                        </BaseButton>
+                    </div>
 
-                <!-- Favorites Grid -->
-                <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
+                    <!-- Favorites Grid -->
+                    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
                     <div v-for="favorite in favorites" :key="`${favorite.category}-${favorite.slug}`" class="group bg-white rounded-lg shadow-sm border border-[rgb(var(--color-text)/0.1)] p-4 hover:shadow-lg transition-all duration-200 relative overflow-hidden">
                         <!-- Remove button -->
                         <button @click="handleRemoveFavorite(favorite)" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition-all duration-200" title="Verwijder van favorieten">
@@ -83,8 +91,8 @@
                     </div>
                 </div>
 
-                <!-- Email Text Section -->
-                <div v-if="favorites.length > 0" class="mt-12 max-w-7xl mx-auto">
+                    <!-- Email Text Section -->
+                    <div v-if="favorites.length > 0" class="mt-12 max-w-7xl mx-auto">
                     <div class="bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg p-6 shadow-sm">
                         <h3 class="text-lg font-bold text-text mb-3">Kopieer voor e-mail</h3>
                         <p class="text-sm text-[rgb(var(--color-text)/0.7)] mb-4">
@@ -136,17 +144,24 @@
                     </div>
                 </div>
 
-                <!-- Contact CTA -->
-                <div v-if="favorites.length > 0" class="mt-8 text-center">
-                    <div class="inline-block bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg px-6 py-4 max-w-2xl shadow-sm">
-                        <p class="text-sm text-text mb-4">
-                            Interesse in één of meerdere van deze variëteiten?
-                        </p>
-                        <BaseButton to="/contact" variant="primary">
-                            Neem contact op
-                        </BaseButton>
+                    <!-- Contact CTA -->
+                    <div v-if="favorites.length > 0" class="mt-8 text-center">
+                        <div class="inline-block bg-white border border-[rgb(var(--color-primary)/0.3)] rounded-lg px-6 py-4 max-w-2xl shadow-sm">
+                            <p class="text-sm text-text mb-4">
+                                Interesse in één of meerdere van deze variëteiten?
+                            </p>
+                            <BaseButton to="/contact" variant="primary">
+                                Neem contact op
+                            </BaseButton>
+                        </div>
                     </div>
-                </div>
+
+                    <template #fallback>
+                        <div class="text-center py-12">
+                            <p class="text-[rgb(var(--color-text)/0.7)]">Favorieten laden...</p>
+                        </div>
+                    </template>
+                </ClientOnly>
             </div>
         </section>
 

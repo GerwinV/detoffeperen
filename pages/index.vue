@@ -37,22 +37,12 @@
             <div class="container">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-2xl md:text-3xl font-bold text-[rgb(var(--color-dark))] mb-8 uppercase tracking-wide">
-                        Regeneratieve kwekerij
+                        Toffe peren
                     </h2>
 
                     <div class="space-y-6 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
                             Bij Toffe Peren draait het om bomen die meer doen dan alleen fruit leveren. Onze bomen helpen de bodem herstellen, versterken biodiversiteit en bouwen mee aan een veerkrachtig ecosysteem. Zonder kunstmest of chemische bestrijdingsmiddelen, gewoon volgens de natuurlijke ritmes van het seizoen en de boom.
-                        </p>
-                        <p class="leading-relaxed">
-                            We richten ons op fruitbomen die geschikt zijn voor echte voedselbosprojecten: groot genoeg om een volwassen boom te worden, robuust genoeg om tientallen jaren mee te gaan, en geënt op onderstammen die hun groei en weerbaarheid ondersteunen. Voor nu ligt onze focus op appels, peren en nashi-peren, maar we blijven kijken naar andere soorten die passen bij een regeneratieve aanpak.
-                        </p>
-                        <p class="leading-relaxed">
-                            Onze aanpak is praktisch en doordacht. Alles wat we doen, van enten tot uitplanten, is gericht op gezonde, sterke bomen. Zo leveren we bomen die klaar zijn om te planten, maar vooral ook klaar zijn om te blijven groeien.
-                        </p>
-                        <p class="leading-relaxed">
-                            Wil je meer weten over welke bomen we hebben en hoe je ze kunt bestellen? Bekijk ons assortiment of lees meer over hoe wij werken en waarom onze aanpak bijzonder is
-
                         </p>
                     </div>
                 </div>
@@ -114,6 +104,30 @@
                 </div>
             </div>
         </section>
+
+        <section class="py-12 md:py-16 bg-white">
+            <div class="container">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[rgb(var(--color-dark))] mb-8 uppercase tracking-wide">
+                        Regeneratieve kwekerij
+                    </h2>
+
+                    <div class="space-y-6 text-[rgb(var(--color-text))]">
+                        <p class="leading-relaxed">
+                            We richten ons op fruitbomen die geschikt zijn voor echte voedselbosprojecten: groot genoeg om een volwassen boom te worden, robuust genoeg om tientallen jaren mee te gaan, en geënt op onderstammen die hun groei en weerbaarheid ondersteunen. Voor nu ligt onze focus op appels, peren en nashi-peren, maar we blijven kijken naar andere soorten die passen bij een regeneratieve aanpak.
+                        </p>
+                        <p class="leading-relaxed">
+                            Onze aanpak is praktisch en doordacht. Alles wat we doen, van enten tot uitplanten, is gericht op gezonde, sterke bomen. Zo leveren we bomen die klaar zijn om te planten, maar vooral ook klaar zijn om te blijven groeien.
+                        </p>
+                        <p class="leading-relaxed">
+                            Wil je meer weten over welke bomen we hebben en hoe je ze kunt bestellen? Bekijk ons assortiment of lees meer over hoe wij werken en waarom onze aanpak bijzonder is
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 </template>
 
