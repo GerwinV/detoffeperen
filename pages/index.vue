@@ -119,10 +119,6 @@
                         <p class="leading-relaxed">
                             Onze aanpak is praktisch en doordacht. Alles wat we doen, van enten tot uitplanten, is gericht op gezonde, sterke bomen. Zo leveren we bomen die klaar zijn om te planten, maar vooral ook klaar zijn om te blijven groeien.
                         </p>
-                        <p class="leading-relaxed">
-                            Wil je meer weten over welke bomen we hebben en hoe je ze kunt bestellen? Bekijk ons assortiment of lees meer over hoe wij werken en waarom onze aanpak bijzonder is
-
-                        </p>
                     </div>
                 </div>
             </div>
