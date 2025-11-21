@@ -153,6 +153,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Een kleurmutant van de beroemde Schone van Boskoop (Goudrenet), ontdekt omstreeks 1856 in Boskoop - een stadje dat zijn naam voor eeuwig aan deze appel heeft verbonden. Groot tot zeer groot formaat met karakteristiek rond, iets afgeplat profiel. De groengele schil is vaak ruw en draagt een diepe, intense rode blos. Plukrijp vanaf september/oktober, maar optimaal in januari na bewaring. Dit is een klassieke bewaarappel die steeds zoeter wordt. Uitstekend voor directe consumptie, maar legendarisch voor appelgebak en appelmoes. Sterke groeier met uitstekende winterhardheid. Een van de meest geliefde Nederlandse appelrassen.",
                 },
+                /* Rubinola - tijdelijk uitgeschakeld (EU CPVO PBR tot 31/12/2030)
                 {
                     name: "Rubinola",
                     slug: "rubinola",
@@ -168,6 +169,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Een moderne schurftresistente variëteit, speciaal ontwikkeld voor biologische en milieuvriendelijke teelt. Middelgrote, licht afgeplatte of kogelvormige appels met een prachtige helderrode tot bloedrode blos die de appel een feestelijk uiterlijk geeft. Uitstekend houdbaar tot begin maart. Schurftresistent en bijna ongevoelig voor meeldauw - een van de meest ziekteresistente appelrassen. Rubinola is een uitstekende bestuiver voor andere appelrassen, waaronder Santana. Topkeuze voor wie biologisch wil telen zonder concessies aan smaak.",
                 },
+                */
                 /* Santana - tijdelijk uitgeschakeld
                 {
                     name: "Santana",
