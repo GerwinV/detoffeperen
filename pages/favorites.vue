@@ -175,9 +175,11 @@ import { ref, computed } from 'vue'
 import { Heart, X, Calendar, ChevronRight, Copy, Check, Mail } from 'lucide-vue-next'
 import { useFavorites } from '~/composables/useFavorites'
 import type { Favorite } from '~/composables/useFavorites'
+import { useTreeData } from '~/composables/useTreeData'
 import VarietyModal from '~/components/VarietyModal.vue'
 
 const { favorites, favoritesCount, removeFromFavorites } = useFavorites()
+const { getVarietyBySlug } = useTreeData()
 
 const showVarietyModal = ref(false)
 const selectedVariety = ref<Favorite | null>(null)
@@ -198,7 +200,9 @@ const handleRemoveFavorite = (favorite: Favorite) => {
 }
 
 const openVarietyModal = (favorite: Favorite) => {
-    selectedVariety.value = favorite
+    // Haal de volledige variety data op (inclusief fullDescription, origin, etc.)
+    const fullVariety = getVarietyBySlug(favorite.category, favorite.slug)
+    selectedVariety.value = fullVariety || favorite
     selectedCategory.value = favorite.category
     showVarietyModal.value = true
 }

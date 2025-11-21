@@ -72,7 +72,7 @@ import { X } from 'lucide-vue-next'
 interface Props {
   modelValue: boolean
   title?: string
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'
   closeOnBackdrop?: boolean
 }
 
@@ -93,6 +93,7 @@ const modalClasses = computed(() => {
     md: 'sm:max-w-md sm:w-full',
     lg: 'sm:max-w-lg sm:w-full',
     xl: 'sm:max-w-xl sm:w-full',
+    '2xl': 'sm:max-w-2xl sm:w-full',
     full: 'sm:max-w-full sm:w-full sm:mx-4'
   }
 
