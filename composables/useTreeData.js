@@ -22,6 +22,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Een Duitse kruising uit 1930 tussen Cox's Orange Pippin en Geheimrat Dr. Oldenburg, ontwikkeld aan het Kaiser Wilhelm Instituut in Müncheberg. Middelgrote, ronde appels met een prachtige geelgroene basiskleur die aan de zonzijde een warme oranje-rode blos ontwikkelt. Vroege bloeier met donkerroze bloemknoppen die opengaan tot overvloedige lichtroze tot witte bloesems. Bij uitstek een handappel, maar door het stevige vruchtvlees ook uitstekend voor appelmoes, compote en taarten. Middelmatig sterkgroeiende boom die 3-4 meter bereikt met regelmatige jaarlijkse productie.",
                 },
+                /* Ambro - tijdelijk uitgeschakeld
                 {
                     name: "Ambro",
                     slug: "ambro",
@@ -38,6 +39,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Een bijzonder Nederlandse toevalszaailing, ontdekt op Schiermonnikoog langs een fietspad. Waarschijnlijk ontkiemd uit een weggegooid klokhuis. In 1998 geïntroduceerd en vernoemd naar Ambrosius Visser, een eilandbewoner die verdronk bij een reddingspoging. Opvallend hooggebouwde appel met karakteristiek lange steel. Overdonderende rozewitte bloesem in april-mei. Bijzonder geschikt voor uitdagende omstandigheden - droog zand, zoute zeelucht en harde wind. Een echte Wadden-appel.",
                 },
+                */
                 {
                     name: "Bramleys Seedling",
                     slug: "bramleys-seedling",
