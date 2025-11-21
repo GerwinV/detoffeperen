@@ -118,6 +118,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Een historisch Nederlands ras, vermoedelijk afkomstig uit Boskoop, met wortels die teruggaan tot 1708. Vroeger algemeen verspreid in Utrecht, Brabant en de IJsselstreek. Bekend onder vele namen: Fransche Kroon, Kroonappel, Prinsesappel, Haagje. Middelgrote appels met karakteristieke groen-geel gestreepte schil. Moet enkele weken narijpen voordat hij op smaak is - na bewaring ontwikkelt zich een zoetzure, aromatische smaak met vast, sappig en knapperig vruchtvlees. Tegenwoordig vooral populair bij liefhebbers van oude rassen. Een stukje levend erfgoed.",
                 },
+                /* Red Topaz - tijdelijk uitgeschakeld
                 {
                     name: "Red Topaz",
                     slug: "red-topaz",
@@ -133,6 +134,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Een rode mutatie van Topaz, die zelf in 1984 in Tsjechië werd ontwikkeld. Red Topaz kwam in 2002 op de markt. Tamelijk kleine, platronde vruchten van ongeveer 200 gram met een veel intensievere roodoranje dekkleur dan de gewone Topaz. Een opvallend mooie appel. Ongeveer een week vroeger rijp dan gewone Topaz. Dezelfde frisse, lichtzure smaak met zoete ondertoon. Heeft dezelfde natuurlijke resistentie tegen appelschurft en meeldauw. Combineert de uitstekende eigenschappen van Topaz met een aantrekkelijker rood uiterlijk.",
                 },
+                */
                 {
                     name: "Rode Boskoop",
                     slug: "rode-boskoop",
@@ -164,6 +166,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Een moderne schurftresistente variëteit, speciaal ontwikkeld voor biologische en milieuvriendelijke teelt. Middelgrote, licht afgeplatte of kogelvormige appels met een prachtige helderrode tot bloedrode blos die de appel een feestelijk uiterlijk geeft. Uitstekend houdbaar tot begin maart. Schurftresistent en bijna ongevoelig voor meeldauw - een van de meest ziekteresistente appelrassen. Rubinola is een uitstekende bestuiver voor andere appelrassen, waaronder Santana. Topkeuze voor wie biologisch wil telen zonder concessies aan smaak.",
                 },
+                /* Santana - tijdelijk uitgeschakeld
                 {
                     name: "Santana",
                     slug: "santana",
@@ -180,6 +183,8 @@ export const useTreeData = () => {
                     fullDescription:
                         "Nederlands appelras uit 1978, een kruising tussen Elstar en Priscilla. Internationaal bekend als de 'allergeenvrije appel'. Middelgrote appels met aantrekkelijke rode streping op geelgroene ondergrond. In het begin van het seizoen hard en friszuur, later zachter en zoeter. Flink resistent tegen ziektes en goed te telen zonder bestrijdingsmiddelen. De grote claim to fame is de hypoallergene eigenschap: mensen met een milde appelallergie kunnen deze appel vaak wel eten zonder klachten. Een uitkomst voor de vele Nederlanders die denken dat ze geen appels kunnen eten. Een sociaal relevante appel!",
                 },
+                */
+                /* Topaz - tijdelijk uitgeschakeld
                 {
                     name: "Topaz",
                     slug: "topaz",
@@ -195,6 +200,7 @@ export const useTreeData = () => {
                     fullDescription:
                         "Ontwikkeld in 1984 aan het Instituut voor Experimentele Botanica in Tsjechië. Een kruising tussen Rubin en Vanda die uitgroeide tot een van de belangrijkste rassen voor milieuvriendelijke appelteelt. Tamelijk grote, platronde vruchten met vettige schil. Twee- of driemaal doorplukken raadzaam. Aangenaam zoet met lichte, verfrissende zuurheid - perfect gebalanceerd. Vaak vergeleken met Elstar. Natuurlijke resistentie tegen appelschurft en meeldauw. Goede bestuivers zijn Ecolette, Fuji Kiku, Santana en Elstar. Topaz is uitgegroeid tot het paradepaardje van de biologische appelteelt.",
                 },
+                */
             ],
         },
         perenbomen: {
