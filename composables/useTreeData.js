@@ -8,6 +8,7 @@ export const useTreeData = () => {
             varieties: [
                 {
                     name: "Alkmene",
+                    latinName: "Malus domestica 'Alkmene'",
                     slug: "alkmene",
                     rootstocks: ["M7", "M11"],
                     harvestTime: "Begin september",
@@ -42,6 +43,7 @@ export const useTreeData = () => {
                 */
                 {
                     name: "Bramleys Seedling",
+                    latinName: "Malus domestica 'Bramley's Seedling'",
                     slug: "bramleys-seedling",
                     rootstocks: ["M11"],
                     harvestTime: "September-oktober",
@@ -58,6 +60,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Ecolette",
+                    latinName: "Malus domestica 'Ecolette'",
                     slug: "ecolette",
                     rootstocks: ["M7", "M11"],
                     harvestTime: "Eind september - half oktober",
@@ -74,6 +77,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Elise",
+                    latinName: "Malus domestica 'Elise'",
                     slug: "elise",
                     rootstocks: ["M7", "M11"],
                     harvestTime: "Eind augustus - begin september",
@@ -90,6 +94,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Lemoen",
+                    latinName: "Malus domestica 'Lemoen'",
                     slug: "lemoen",
                     rootstocks: ["M7", "M11"],
                     harvestTime: "November - januari",
@@ -106,6 +111,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Princess Noble",
+                    latinName: "Malus domestica 'Princess Noble'",
                     slug: "princess-noble",
                     rootstocks: ["M7", "M11"],
                     harvestTime: "Oktober",
@@ -139,6 +145,7 @@ export const useTreeData = () => {
                 */
                 {
                     name: "Rode Boskoop",
+                    latinName: "Malus domestica 'Rode Boskoop'",
                     slug: "rode-boskoop",
                     rootstocks: ["M7", "M11"],
                     harvestTime: "September-oktober",
@@ -215,6 +222,7 @@ export const useTreeData = () => {
             varieties: [
                 {
                     name: "Beurré Bachelier",
+                    latinName: "Pyrus communis 'Beurré Bachelier'",
                     slug: "beurre-bachelier",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Oktober",
@@ -231,6 +239,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Colmar Épineux",
+                    latinName: "Pyrus communis 'Colmar Épineux'",
                     slug: "colmar-epineux",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Winter",
@@ -247,6 +256,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Comtesse de Paris",
+                    latinName: "Pyrus communis 'Comtesse de Paris'",
                     slug: "comtesse-de-paris",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Half oktober - november",
@@ -262,6 +272,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Concorde",
+                    latinName: "Pyrus communis 'Concorde'",
                     slug: "concorde",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Eind september - begin oktober",
@@ -277,6 +288,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Josefine de Malines",
+                    latinName: "Pyrus communis 'Josefine de Malines'",
                     slug: "josefine-de-malines",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Eind oktober - begin november",
@@ -293,6 +305,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Juttepeer",
+                    latinName: "Pyrus communis 'Juttepeer'",
                     slug: "juttepeer",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Half september",
@@ -309,6 +322,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Legipont",
+                    latinName: "Pyrus communis 'Legipont'",
                     slug: "legipont",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Eind september - eind oktober",
@@ -325,6 +339,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Packhams Triumph",
+                    latinName: "Pyrus communis 'Packhams Triumph'",
                     slug: "packhams-triumph",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "November - augustus",
@@ -341,6 +356,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Rode Williams",
+                    latinName: "Pyrus communis 'Rode Williams'",
                     slug: "rode-williams",
                     rootstocks: ["Pyrodwarf"],
                     harvestTime: "Eind augustus - begin september",
@@ -357,6 +373,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Seigneur d'Esperen",
+                    latinName: "Pyrus communis 'Seigneur d'Esperen'",
                     slug: "seigneur-desperen",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Half september",
@@ -372,6 +389,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Triomphe de Vienne",
+                    latinName: "Pyrus communis 'Triomphe de Vienne'",
                     slug: "triomphe-de-vienne",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Half augustus - half september",
@@ -387,6 +405,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Williams",
+                    latinName: "Pyrus communis 'Williams Bon Chrétien'",
                     slug: "williams",
                     rootstocks: ["Pyrodwarf", "Kirchensaller"],
                     harvestTime: "Eind augustus - begin september",
@@ -412,6 +431,7 @@ export const useTreeData = () => {
             varieties: [
                 {
                     name: "Chojuro",
+                    latinName: "Pyrus pyrifolia 'Chojuro'",
                     slug: "chojuro",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "September",
@@ -428,6 +448,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Hosui",
+                    latinName: "Pyrus pyrifolia 'Hosui'",
                     slug: "hosui",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "Begin augustus",
@@ -443,6 +464,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Kosui",
+                    latinName: "Pyrus pyrifolia 'Kosui'",
                     slug: "kosui",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "Half augustus",
@@ -458,6 +480,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Kumoi",
+                    latinName: "Pyrus pyrifolia 'Kumoi'",
                     slug: "kumoi",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "September-oktober",
@@ -473,6 +496,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Nijisseiki",
+                    latinName: "Pyrus pyrifolia 'Nijisseiki'",
                     slug: "nijisseiki",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "Half augustus - september",
@@ -489,6 +513,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Nitaka",
+                    latinName: "Pyrus pyrifolia 'Nitaka'",
                     slug: "nitaka",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "Eind augustus",
@@ -504,6 +529,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Shinko",
+                    latinName: "Pyrus pyrifolia 'Shinko'",
                     slug: "shinko",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "Oktober",
@@ -519,6 +545,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Shinseiki",
+                    latinName: "Pyrus pyrifolia 'Shinseiki'",
                     slug: "shinseiki",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "September",
@@ -534,6 +561,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Tama",
+                    latinName: "Pyrus pyrifolia 'Tama'",
                     slug: "tama",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "Juli-augustus",
@@ -550,6 +578,7 @@ export const useTreeData = () => {
                 },
                 {
                     name: "Tsu-Li",
+                    latinName: "Pyrus pyrifolia 'Tsu-Li'",
                     slug: "tsuli",
                     rootstocks: ["Kirchensaller"],
                     harvestTime: "Herfst (laat)",

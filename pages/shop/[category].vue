@@ -143,7 +143,8 @@ import VarietyModal from '~/components/VarietyModal.vue'
 import PriceTable from '~/components/PriceTable.vue'
 
 const route = useRoute()
-const { getCategoryBySlug } = useTreeData()
+const router = useRouter()
+const { getCategoryBySlug, getVarietyBySlug } = useTreeData()
 const { isFavorited, toggleFavorite } = useFavorites()
 
 const showVarietyModal = ref(false)
@@ -164,6 +165,11 @@ const categoryData = computed(() => {
 const openVarietyModal = (variety: any) => {
     selectedVariety.value = variety
     showVarietyModal.value = true
+
+    // Update URL with variety slug for shareability
+    router.push({
+        query: { variety: variety.slug }
+    })
 }
 
 const toggleVarietyFavorite = (variety: any) => {
@@ -176,6 +182,43 @@ const toggleVarietyFavorite = (variety: any) => {
         harvestTime: variety.harvestTime
     })
 }
+
+// Handle variety query parameter (for auto-opening modal from search)
+const checkVarietyParam = () => {
+    const varietySlug = route.query.variety
+
+    if (varietySlug && typeof varietySlug === 'string') {
+        const variety = getVarietyBySlug(route.params.category as string, varietySlug)
+        if (variety) {
+            selectedVariety.value = variety
+            showVarietyModal.value = true
+        }
+    } else if (!varietySlug && showVarietyModal.value) {
+        // Close modal if variety param is removed (e.g., browser back)
+        showVarietyModal.value = false
+        selectedVariety.value = null
+    }
+}
+
+// Watch for route query changes (back/forward navigation)
+watch(() => route.query.variety, () => {
+    checkVarietyParam()
+})
+
+// Watch for modal close to update URL
+watch(showVarietyModal, (isOpen) => {
+    if (!isOpen && route.query.variety) {
+        // Remove variety query param when modal is closed
+        router.push({
+            query: {}
+        })
+    }
+})
+
+// Check on mount
+onMounted(() => {
+    checkVarietyParam()
+})
 
 // Set page meta
 useHead({
