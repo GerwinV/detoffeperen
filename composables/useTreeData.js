@@ -4,7 +4,7 @@ export const useTreeData = () => {
             name: "Appelbomen",
             slug: "appelbomen",
             description: "Onze collectie appelbomen, gekweekt zonder bestrijdingsmiddelen en kunstmest",
-            image: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop",
+            image: "/images/appel-fruit.jpg",
             varieties: [
                 {
                     name: "Alkmene",
@@ -218,7 +218,7 @@ export const useTreeData = () => {
             name: "Perenbomen",
             slug: "perenbomen",
             description: "Diverse perenvariëteiten, gekweekt zonder bestrijdingsmiddelen en kunstmest",
-            image: "https://images.unsplash.com/photo-1514756331096-242fdeb70d4a?w=400&h=300&fit=crop",
+            image: "/images/peer-fruit.jpeg",
             varieties: [
                 {
                     name: "Beurré Bachelier",
@@ -427,7 +427,7 @@ export const useTreeData = () => {
             slug: "nashi-peren",
             description:
                 "Aziatische peren met een knapperige textuur die behouden blijft - anders dan Europese peren worden ze niet zacht",
-            image: "https://images.unsplash.com/photo-1514756331096-242fdeb70d4a?w=400&h=300&fit=crop",
+            image: "/images/nashi-fruit.jpg",
             varieties: [
                 {
                     name: "Chojuro",

@@ -63,6 +63,6 @@ import SocialMediaIcons from '~/components/SocialMediaIcons.vue'
 const companyInfo = {
     name: 'Toffe Peren',
     tagline: 'regeneratieve kwekerij',
-    email: 'info@kwekerijtoffeperen.nl'
+    email: 'info@voedselbospeize.nl'
 }
 </script>

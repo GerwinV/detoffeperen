@@ -85,8 +85,8 @@
                                         <div>
                                             <h3 class="font-semibold mb-2 text-[rgb(var(--color-text))]">E-mail</h3>
                                             <p class="text-[rgb(var(--color-text))]">
-                                                <a href="mailto:info@kwekerijtoffeperen.nl" class="hover:text-primary transition-colors">
-                                                    info@kwekerijtoffeperen.nl
+                                                <a href="mailto:info@voedselbospeize.nl" class="hover:text-primary transition-colors">
+                                                    info@voedselbospeize.nl
                                                 </a>
                                             </p>
                                             <p class="text-sm text-[rgb(var(--color-text)/0.7)] mt-1">
