@@ -226,7 +226,7 @@ const emailText = computed(() => {
 const gmailUrl = computed(() => {
     const subject = 'Interesse in variëteiten'
     const body = emailText.value
-    const to = 'info@voedselbospeize.nl'
+    const to = 'info@kwekerijtoffeperen.nl'
 
     return `https://mail.google.com/mail/?to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&tf=cm`
 })
@@ -235,7 +235,7 @@ const gmailUrl = computed(() => {
 const outlookUrl = computed(() => {
     const subject = 'Interesse in variëteiten'
     const body = emailText.value
-    const to = 'info@voedselbospeize.nl'
+    const to = 'info@kwekerijtoffeperen.nl'
 
     return `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(to)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 })
