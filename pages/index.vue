@@ -42,7 +42,7 @@
 
                     <div class="space-y-6 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
-                            Bij Toffe Peren draait het om bomen die meer doen dan alleen fruit leveren. Onze bomen helpen de bodem herstellen, versterken biodiversiteit en bouwen mee aan een veerkrachtig ecosysteem. Zonder kunstmest of chemische bestrijdingsmiddelen, gewoon volgens de natuurlijke ritmes van het seizoen en de boom.
+                            Bij Toffe Peren kweken we bomen die meer doen dan fruit dragen. Onze bomen helpen de bodem herstellen, vergroten de biodiversiteit en bouwen mee aan een veerkrachtig ecosysteem. We werken zonder kunstmest of bestrijdingsmiddelen, volgens de natuurlijke ritmes van het seizoen en de boom. We selecteren met aandacht productieve en robuuste rassen die het goed doen in extensieve systemen: ideaal voor voedselbossen en eetbare tuinen.
                         </p>
                     </div>
                 </div>
@@ -114,10 +114,10 @@
 
                     <div class="space-y-6 text-[rgb(var(--color-text))]">
                         <p class="leading-relaxed">
-                            We richten ons op fruitbomen die geschikt zijn voor echte voedselbosprojecten: groot genoeg om een volwassen boom te worden, robuust genoeg om tientallen jaren mee te gaan, en geënt op onderstammen die hun groei en weerbaarheid ondersteunen. Voor nu ligt onze focus op appels, peren en nashi-peren, maar we blijven kijken naar andere soorten die passen bij een regeneratieve aanpak.
+                            We kweken fruitbomen die echt passen bij voedselbosprojecten: bomen die uitgroeien tot volwassen exemplaren, geënt op onderstammen die vitaliteit, groei en weerbaarheid ondersteunen. Voor nu ligt onze focus op appels, peren en nashi-peren, maar we blijven kijken naar andere soorten die passen bij een regeneratieve aanpak.
                         </p>
                         <p class="leading-relaxed">
-                            Onze aanpak is praktisch en doordacht. Alles wat we doen, van enten tot uitplanten, is gericht op gezonde, sterke bomen. Zo leveren we bomen die klaar zijn om te planten, maar vooral ook klaar zijn om te blijven groeien.
+                            Onze werkwijze is praktisch én doordacht. Van het enten tot het uitplanten werken we met methoden die de boom vanaf het begin een sterke structuur, gezonde wortels en een weerbare groei meegeven. Zo leveren we bomen die niet alleen klaar zijn om geplant te worden, maar ook om zich jarenlang te ontwikkelen in extensieve systemen.
                         </p>
                     </div>
                 </div>
