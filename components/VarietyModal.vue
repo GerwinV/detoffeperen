@@ -3,9 +3,23 @@
     <div v-if="variety" class="p-6 max-h-[85vh] overflow-y-auto">
       <!-- Header -->
       <div class="mb-6">
-        <h2 class="text-2xl font-bold font-playfair text-text mb-2">
+        <!-- Category badge -->
+        <span
+          v-if="category"
+          class="inline-block px-2.5 py-1 rounded-full text-xs font-medium bg-[rgb(var(--color-primary)/0.15)] text-[rgb(var(--color-primary))] border border-[rgb(var(--color-primary)/0.3)] mb-3"
+        >
+          {{ categoryDisplayName }}
+        </span>
+
+        <h2 class="text-2xl font-bold font-playfair text-text mb-1">
           {{ variety.name }}
         </h2>
+
+        <!-- Latin name -->
+        <p v-if="variety.latinName" class="text-sm text-[rgb(var(--color-text)/0.5)] italic mb-2">
+          {{ variety.latinName }}
+        </p>
+
         <p v-if="variety.origin" class="text-sm text-[rgb(var(--color-text)/0.6)]">
           <MapPin class="w-3.5 h-3.5 inline mr-1" />
           {{ variety.origin }}
@@ -182,6 +196,15 @@ const props = defineProps({
 defineEmits(['update:modelValue'])
 
 const { isFavorited, toggleFavorite } = useFavorites()
+
+const categoryDisplayName = computed(() => {
+  const names: Record<string, string> = {
+    'appelbomen': 'Appel',
+    'perenbomen': 'Peer',
+    'nashi-peren': 'Nashi'
+  }
+  return names[props.category] || props.category
+})
 
 const isVarietyFavorited = computed(() => {
   if (!props.variety || !props.category) return false
