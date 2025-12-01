@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Compact Header -->
-        <section class="bg-white py-4 md:py-6 sticky top-0 z-10 shadow-sm">
+        <section class="bg-white py-4 md:py-6 sticky top-0 z-20 shadow-sm">
             <div class="container">
                 <!-- Breadcrumb and description -->
                 <div class="mb-3">
