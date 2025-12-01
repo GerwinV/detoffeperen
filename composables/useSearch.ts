@@ -1,17 +1,33 @@
 import { ref, computed } from 'vue'
-import { useTreeData } from './useTreeData'
+import { useTreeDataFromDB } from './useTreeDataFromDB'
+
+interface SearchResult {
+    id: number
+    name: string
+    latinName: string | null
+    slug: string
+    description: string | null
+    categorySlug: string
+    categoryName: string
+    matchScore: number
+    matchedIn: string
+    rootstocks: string[]
+    harvestTime: string | null
+}
 
 export const useSearch = () => {
-    const { treeData } = useTreeData()
+    const { treeData, fetchData } = useTreeDataFromDB()
     const searchQuery = ref('')
-    const searchTimeout = ref(null)
+    const searchTimeout = ref<ReturnType<typeof setTimeout> | null>(null)
 
     // Flatten all varieties with their category information
     const allVarieties = computed(() => {
-        const varieties = []
+        const varieties: any[] = []
 
-        Object.entries(treeData).forEach(([categorySlug, category]) => {
-            category.varieties.forEach(variety => {
+        if (!treeData.value) return varieties
+
+        Object.entries(treeData.value).forEach(([categorySlug, category]) => {
+            category.varieties.forEach((variety: any) => {
                 varieties.push({
                     ...variety,
                     categorySlug,
@@ -28,7 +44,7 @@ export const useSearch = () => {
      * Calculate similarity score between query and text
      * Uses fuzzy matching for typo tolerance
      */
-    const calculateSimilarity = (query, text) => {
+    const calculateSimilarity = (query: string, text: string | null): number => {
         if (!text) return 0
 
         const queryLower = query.toLowerCase()
@@ -67,7 +83,7 @@ export const useSearch = () => {
      * Search varieties by name, Latin name, and category
      * Returns sorted results by relevance
      */
-    const searchVarieties = (query) => {
+    const searchVarieties = (query: string): SearchResult[] => {
         if (!query || query.trim().length === 0) {
             return []
         }
@@ -118,7 +134,7 @@ export const useSearch = () => {
     /**
      * Debounced search for real-time suggestions
      */
-    const debouncedSearch = (query, callback, delay = 300) => {
+    const debouncedSearch = (query: string, callback: (results: SearchResult[]) => void, delay = 300) => {
         if (searchTimeout.value) {
             clearTimeout(searchTimeout.value)
         }
@@ -132,7 +148,7 @@ export const useSearch = () => {
     /**
      * Get top N suggestions for dropdown
      */
-    const getTopSuggestions = (query, limit = 5) => {
+    const getTopSuggestions = (query: string, limit = 5): SearchResult[] => {
         const results = searchVarieties(query)
         return results.slice(0, limit)
     }
@@ -140,8 +156,8 @@ export const useSearch = () => {
     /**
      * Highlight matching text in a string
      */
-    const highlightMatch = (text, query) => {
-        if (!text || !query) return text
+    const highlightMatch = (text: string | null, query: string): string => {
+        if (!text || !query) return text || ''
 
         const regex = new RegExp(`(${query})`, 'gi')
         return text.replace(regex, '<mark class="bg-primary/20 font-semibold">$1</mark>')
@@ -150,7 +166,7 @@ export const useSearch = () => {
     /**
      * Get search suggestions based on popular varieties
      */
-    const getSearchSuggestions = () => {
+    const getSearchSuggestions = (): string[] => {
         // Return a few popular varieties as suggestions
         return [
             'Hosui',
@@ -168,6 +184,7 @@ export const useSearch = () => {
         debouncedSearch,
         getTopSuggestions,
         highlightMatch,
-        getSearchSuggestions
+        getSearchSuggestions,
+        fetchData
     }
 }

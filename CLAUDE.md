@@ -29,18 +29,67 @@ npm run preview
 
 ### Data Management
 
-The application uses a **static data approach** for tree varieties:
-- All tree data (categories, varieties, rootstocks, descriptions) is defined in `composables/useTreeData.js`
-- Three main categories: `appelbomen`, `perenbomen`, `nashi-peren`
-- Each variety has: name, slug, rootstocks array, harvestTime (optional), and description
-- No Pinia stores or API calls - data is imported directly via the composable
+The application uses a **database-driven approach** with PostgreSQL and Drizzle ORM:
+
+**Database Layer:**
+- PostgreSQL database with Drizzle ORM (`server/database/`)
+- Schema defined in `server/database/schema.ts`
+- Migrations via `drizzle-kit push`
+- Seed script at `server/database/seed.ts` (uses data from `composables/useTreeData.js`)
+
+**Data Flow:**
+- Admin changes (via `/admin/*` pages) write to the database
+- Public site fetches from database via `composables/useTreeDataFromDB.ts`
+- Fallback to static data (`composables/useTreeData.js`) if API fails
+
+**Public APIs (`server/api/public/`):**
+- `categories.get.ts` - List all categories
+- `varieties.get.ts` - List all varieties with features/rootstocks
+- `availability.get.ts` - Stock status per variety/rootstock
+
+**Admin APIs (`server/api/admin/`):**
+- Full CRUD for categories, varieties, rootstocks, sizes
+- Stock management and pricing
+- Protected routes (requires authentication)
+
+**Key Tables:**
+- `categories` - Tree categories (appelbomen, perenbomen, nashi-peren)
+- `varieties` - Individual tree varieties
+- `rootstocks` - Rootstock types available
+- `sizes` - Size tiers (30-60cm, 60-100cm, etc.)
+- `categoryPrices` - Pricing per category/size combination
+- `varietyStock` - Stock levels per variety/rootstock/size
+- `stockMovements` - Stock change audit log
+
+**Database Commands:**
+```bash
+# Push schema changes to database
+npx drizzle-kit push
+
+# Seed database with initial data
+npx tsx server/database/seed.ts
+
+# Reset database (truncate all tables)
+npx tsx server/database/reset.ts
+```
 
 ### Routing Structure
 
+**Public Pages:**
 - `/` - Homepage with hero section and category overview
-- `/shop/index.vue` - Shop overview (if exists)
+- `/shop` - Shop overview
 - `/shop/[category].vue` - Dynamic category pages (appelbomen, perenbomen, nashi-peren)
-- `/contact.vue` - Contact page
+- `/favorites` - User's saved favorite varieties
+- `/contact` - Contact page
+
+**Admin Pages (`/admin/*`):**
+- `/admin` - Dashboard overview
+- `/admin/categories` - Manage categories
+- `/admin/varieties` - Manage varieties (add/edit/toggle active)
+- `/admin/rootstocks` - Manage rootstocks
+- `/admin/sizes` - Manage size tiers
+- `/admin/pricing` - Category-based pricing management
+- `/admin/stock` - Stock management per variety/rootstock/size
 
 ### Component Architecture
 
@@ -59,7 +108,14 @@ The application uses a **static data approach** for tree varieties:
 - `AppFooter.vue` - Site footer with SocialMediaIcons
 - `CategoryGrid.vue` - Grid display for tree categories
 - `VarietyModal.vue` - Modal for displaying variety details
+- `PriceTable.vue` - Category pricing display
 - `icons/PearIcon.vue` - Custom pear icon SVG
+
+**Key Composables:**
+- `useTreeDataFromDB.ts` - Fetches tree data from database API (primary)
+- `useTreeData.js` - Static tree data (fallback, also used for seeding)
+- `useSearch.ts` - Search functionality across varieties
+- `useFavorites.ts` - Local storage-based favorites management
 
 ### Styling System
 
@@ -74,9 +130,10 @@ The application uses a **static data approach** for tree varieties:
 ### Configuration
 
 **Environment Variables (.env):**
-- `SUPABASE_URL` - Supabase project URL
-- `SUPABASE_ANON_KEY` - Supabase anonymous key
+- `DATABASE_URL` - PostgreSQL connection string (required)
 - `SITE_URL` - Site URL (defaults to http://localhost:3000)
+- `SUPABASE_URL` - Supabase project URL (optional, for auth)
+- `SUPABASE_ANON_KEY` - Supabase anonymous key (optional)
 - `MOLLIE_API_KEY` - Payment integration (future)
 - `MOLLIE_WEBHOOK_URL` - Payment webhooks (future)
 
@@ -91,10 +148,16 @@ The application uses a **static data approach** for tree varieties:
 
 ### Adding New Tree Varieties
 
-1. Edit `composables/useTreeData.js`
-2. Add variety object to appropriate category's `varieties` array
-3. Include: name, slug (kebab-case), rootstocks array, optional harvestTime, description
-4. Slug must be unique within the category
+**Via Admin UI (recommended):**
+1. Go to `/admin/varieties`
+2. Click "Add Variety" and fill in the form
+3. Assign rootstocks and features
+4. Set stock levels via `/admin/stock`
+
+**Via Seed Script (for bulk data):**
+1. Edit `composables/useTreeData.js` to add variety data
+2. Run `npx tsx server/database/seed.ts` to sync to database
+3. The seed script is idempotent (safe to run multiple times)
 
 ### Page Structure
 

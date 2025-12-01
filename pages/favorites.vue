@@ -175,11 +175,14 @@ import { ref, computed } from 'vue'
 import { Heart, X, Calendar, ChevronRight, Copy, Check, Mail } from 'lucide-vue-next'
 import { useFavorites } from '~/composables/useFavorites'
 import type { Favorite } from '~/composables/useFavorites'
-import { useTreeData } from '~/composables/useTreeData'
+import { useTreeDataFromDB } from '~/composables/useTreeDataFromDB'
 import VarietyModal from '~/components/VarietyModal.vue'
 
 const { favorites, favoritesCount, removeFromFavorites } = useFavorites()
-const { getVarietyBySlug } = useTreeData()
+const { getVarietyBySlug, fetchData } = useTreeDataFromDB()
+
+// Fetch data from database
+await fetchData()
 
 const showVarietyModal = ref(false)
 const selectedVariety = ref<Favorite | null>(null)

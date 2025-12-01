@@ -22,9 +22,100 @@ const rootstockDescriptions: Record<string, string> = {
 
 // Default prices per category/size (in euros)
 const defaultPrices: Record<string, Record<string, string>> = {
-  'appelbomen': { '30-60 cm': '15.00', '60-100 cm': '18.00', '100-150 cm': '24.00', '150-200 cm': '32.00' },
-  'perenbomen': { '30-60 cm': '17.00', '60-100 cm': '20.00', '100-150 cm': '26.00', '150-200 cm': '35.00' },
-  'nashi-peren': { '30-60 cm': '19.00', '60-100 cm': '22.00', '100-150 cm': '28.00', '150-200 cm': '38.00' }
+  'appelbomen': { '30-60 cm': '12.00', '60-100 cm': '15.00', '100-150 cm': '20.00', '150-200 cm': '25.00' },
+  'perenbomen': { '30-60 cm': '12.00', '60-100 cm': '15.00', '100-150 cm': '20.00', '150-200 cm': '25.00' },
+  'nashi-peren': { '30-60 cm': '15.00', '60-100 cm': '18.00', '100-150 cm': '23.00', '150-200 cm': '28.00' }
+}
+
+// Stock data from CSV: { varietySlug: { rootstock: { size: quantity } } }
+const stockData: Record<string, Record<string, Record<string, number>>> = {
+  // Nashi peren
+  'chojuro': { 'Kirchensaller': { '30-60 cm': 13, '60-100 cm': 14, '100-150 cm': 0, '150-200 cm': 0 } },
+  'shinseiki': { 'Kirchensaller': { '30-60 cm': 19, '60-100 cm': 14, '100-150 cm': 0, '150-200 cm': 0 } },
+  'shinko': { 'Kirchensaller': { '30-60 cm': 19, '60-100 cm': 7, '100-150 cm': 1, '150-200 cm': 0 } },
+  'kosui': { 'Kirchensaller': { '30-60 cm': 3, '60-100 cm': 5, '100-150 cm': 0, '150-200 cm': 0 } },
+  'tama': { 'Kirchensaller': { '30-60 cm': 17, '60-100 cm': 7, '100-150 cm': 0, '150-200 cm': 0 } },
+  'hosui': { 'Kirchensaller': { '30-60 cm': 10, '60-100 cm': 4, '100-150 cm': 0, '150-200 cm': 0 } },
+  'tsuli': { 'Kirchensaller': { '30-60 cm': 0, '60-100 cm': 5, '100-150 cm': 3, '150-200 cm': 0 } },
+  'kumoi': { 'Kirchensaller': { '30-60 cm': 2, '60-100 cm': 4, '100-150 cm': 0, '150-200 cm': 0 } },
+  'nijisseiki': { 'Kirchensaller': { '30-60 cm': 2, '60-100 cm': 7, '100-150 cm': 0, '150-200 cm': 0 } },
+  'nitaka': { 'Kirchensaller': { '30-60 cm': 3, '60-100 cm': 3, '100-150 cm': 0, '150-200 cm': 0 } },
+  // Perenbomen
+  'colmar-epineux': {
+    'Pyrodwarf': { '30-60 cm': 2, '60-100 cm': 1, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 6, '60-100 cm': 10, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'beurre-bachelier': {
+    'Pyrodwarf': { '30-60 cm': 5, '60-100 cm': 0, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 8, '60-100 cm': 2, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'juttepeer': {
+    'Pyrodwarf': { '30-60 cm': 1, '60-100 cm': 0, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 1, '60-100 cm': 7, '100-150 cm': 2, '150-200 cm': 0 }
+  },
+  'concorde': {
+    'Pyrodwarf': { '30-60 cm': 8, '60-100 cm': 0, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 20, '60-100 cm': 4, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'packhams-triumph': {
+    'Pyrodwarf': { '30-60 cm': 1, '60-100 cm': 4, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 3, '60-100 cm': 8, '100-150 cm': 2, '150-200 cm': 0 }
+  },
+  'seigneur-desperen': {
+    'Pyrodwarf': { '30-60 cm': 5, '60-100 cm': 3, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 3, '60-100 cm': 5, '100-150 cm': 2, '150-200 cm': 0 }
+  },
+  'legipont': {
+    'Pyrodwarf': { '30-60 cm': 2, '60-100 cm': 0, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 7, '60-100 cm': 6, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'comtesse-de-paris': {
+    'Pyrodwarf': { '30-60 cm': 7, '60-100 cm': 1, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 1, '60-100 cm': 6, '100-150 cm': 3, '150-200 cm': 0 }
+  },
+  'josefine-de-malines': {
+    'Pyrodwarf': { '30-60 cm': 1, '60-100 cm': 0, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 5, '60-100 cm': 2, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'triomphe-de-vienne': {
+    'Pyrodwarf': { '30-60 cm': 5, '60-100 cm': 2, '100-150 cm': 0, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 0, '60-100 cm': 10, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'rode-williams': {
+    'Pyrodwarf': { '30-60 cm': 10, '60-100 cm': 3, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'williams': {
+    'Pyrodwarf': { '30-60 cm': 0, '60-100 cm': 2, '100-150 cm': 1, '150-200 cm': 0 },
+    'Kirchensaller': { '30-60 cm': 0, '60-100 cm': 2, '100-150 cm': 1, '150-200 cm': 0 }
+  },
+  // Appelbomen
+  'ecolette': {
+    'M7': { '30-60 cm': 0, '60-100 cm': 4, '100-150 cm': 6, '150-200 cm': 0 },
+    'M11': { '30-60 cm': 4, '60-100 cm': 11, '100-150 cm': 1, '150-200 cm': 0 }
+  },
+  'bramleys-seedling': {
+    'M11': { '30-60 cm': 3, '60-100 cm': 3, '100-150 cm': 1, '150-200 cm': 0 }
+  },
+  'lemoen': {
+    'M7': { '30-60 cm': 0, '60-100 cm': 12, '100-150 cm': 3, '150-200 cm': 0 },
+    'M11': { '30-60 cm': 0, '60-100 cm': 5, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'elise': {
+    'M7': { '30-60 cm': 8, '60-100 cm': 8, '100-150 cm': 0, '150-200 cm': 0 },
+    'M11': { '30-60 cm': 4, '60-100 cm': 1, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'rode-boskoop': {
+    'M7': { '30-60 cm': 0, '60-100 cm': 1, '100-150 cm': 10, '150-200 cm': 2 },
+    'M11': { '30-60 cm': 0, '60-100 cm': 3, '100-150 cm': 2, '150-200 cm': 0 }
+  },
+  'princess-noble': {
+    'M7': { '30-60 cm': 0, '60-100 cm': 7, '100-150 cm': 6, '150-200 cm': 0 },
+    'M11': { '30-60 cm': 8, '60-100 cm': 2, '100-150 cm': 0, '150-200 cm': 0 }
+  },
+  'alkmene': {
+    'M7': { '30-60 cm': 0, '60-100 cm': 13, '100-150 cm': 1, '150-200 cm': 0 },
+    'M11': { '30-60 cm': 2, '60-100 cm': 3, '100-150 cm': 0, '150-200 cm': 0 }
+  }
 }
 
 // Static tree data from useTreeData.js
@@ -658,17 +749,23 @@ async function seed() {
         }
       }
 
-      // Create stock entries for each variety + rootstock + size combination (stock = 0)
+      // Create stock entries for each variety + rootstock + size combination
       for (const rootstockName of varietyData.rootstocks) {
         const rootstockId = rootstockMap.get(rootstockName)
         if (rootstockId) {
           // Create entry for each size
-          for (const [, sizeId] of sizeMap) {
+          for (const [sizeName, sizeId] of sizeMap) {
+            // Get stock quantity from stockData if available
+            const varietyStockData = stockData[varietyData.slug]
+            const rootstockStockData = varietyStockData?.[rootstockName]
+            const quantity = rootstockStockData?.[sizeName] ?? 0
+
             await db.insert(varietyStock).values({
               varietyId,
               rootstockId,
               sizeId,
-              stockQuantity: 0, // Will be updated later with actual stock
+              stockQuantity: quantity,
+              lowStockThreshold: 4,
               isAvailable: true
             }).onConflictDoNothing()
           }
