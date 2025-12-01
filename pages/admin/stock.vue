@@ -92,7 +92,7 @@
               <td class="px-6 py-4 whitespace-nowrap">
                 <div>
                   <p class="text-gray-900">{{ row.size.name }}</p>
-                  <p class="text-xs text-gray-500">€{{ row.size.price }}</p>
+                  <p class="text-xs text-gray-500">{{ row.price ? `€${row.price}` : 'Geen prijs' }}</p>
                 </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
@@ -145,8 +145,9 @@ interface StockItem {
   isAvailable: boolean | null
   variety: { id: number; name: string; slug: string }
   rootstock: { id: number; name: string }
-  size: { id: number; name: string; price: string; sortOrder: number }
+  size: { id: number; name: string; sortOrder: number }
   category: { id: number; name: string; slug: string }
+  price: string | null
 }
 
 const toast = useToast()

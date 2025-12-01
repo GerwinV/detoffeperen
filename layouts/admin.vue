@@ -78,6 +78,8 @@ const navigation = [
   { name: 'Dashboard', href: '/admin', icon: '🏠' },
   { name: 'Voorraad', href: '/admin/stock', icon: '📦' },
   { name: 'Variëteiten', href: '/admin/varieties', icon: '🏷️' },
+  { name: 'Groottes', href: '/admin/sizes', icon: '📏' },
+  { name: 'Prijzen', href: '/admin/pricing', icon: '💰' },
   { name: 'Gebruikers', href: '/admin/users', icon: '👥' }
 ]
 
