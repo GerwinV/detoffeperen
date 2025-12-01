@@ -195,6 +195,9 @@
             Prijzen
           </h3>
           <PriceTable :category="category" />
+          <p class="text-sm text-[rgb(var(--color-text)/0.6)] mt-3">
+            Je kunt onze bomen niet rechtstreeks in de webshop kopen. Voeg ze toe aan je favorieten zodat je ons vanaf daar gemakkelijk een mail kunt sturen.
+          </p>
         </div>
 
         <!-- Action buttons -->
