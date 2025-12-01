@@ -1,15 +1,31 @@
 import 'dotenv/config'
 import { drizzle } from 'drizzle-orm/postgres-js'
+import { eq } from 'drizzle-orm'
 import postgres from 'postgres'
-import { categories, varieties, features, varietyFeatures, rootstocks, sizes, varietyStock, users } from './schema'
+import { categories, varieties, features, varietyFeatures, rootstocks, sizes, varietyStock, categoryPrices, users } from './schema'
 
-// Size tiers with prices
+// Size tiers (prices are now stored per category in categoryPrices)
 const sizeTiers = [
-  { name: '30-60 cm', minHeight: 30, maxHeight: 60, price: '15.00', sortOrder: 1 },
-  { name: '60-100 cm', minHeight: 60, maxHeight: 100, price: '18.00', sortOrder: 2 },
-  { name: '100-150 cm', minHeight: 100, maxHeight: 150, price: '23.00', sortOrder: 3 },
-  { name: '150-200 cm', minHeight: 150, maxHeight: 200, price: '28.00', sortOrder: 4 }
+  { name: '30-60 cm', minHeight: 30, maxHeight: 60, sortOrder: 1 },
+  { name: '60-100 cm', minHeight: 60, maxHeight: 100, sortOrder: 2 },
+  { name: '100-150 cm', minHeight: 100, maxHeight: 150, sortOrder: 3 },
+  { name: '150-200 cm', minHeight: 150, maxHeight: 200, sortOrder: 4 }
 ]
+
+// Rootstock descriptions
+const rootstockDescriptions: Record<string, string> = {
+  'M7': 'Halfstam onderstam voor appelbomen. Geeft bomen van 3-4 meter hoogte.',
+  'M11': 'Krachtige onderstam voor appelbomen. Geschikt voor hoogstam en halfstam bomen tot 5-6 meter.',
+  'Pyrodwarf': 'Zwakgroeiende onderstam voor perenbomen. Ideaal voor kleinere tuinen.',
+  'Kirchensaller': 'Sterke onderstam voor peren en nashi. Geeft krachtige, gezonde bomen.'
+}
+
+// Default prices per category/size (in euros)
+const defaultPrices: Record<string, Record<string, string>> = {
+  'appelbomen': { '30-60 cm': '15.00', '60-100 cm': '18.00', '100-150 cm': '24.00', '150-200 cm': '32.00' },
+  'perenbomen': { '30-60 cm': '17.00', '60-100 cm': '20.00', '100-150 cm': '26.00', '150-200 cm': '35.00' },
+  'nashi-peren': { '30-60 cm': '19.00', '60-100 cm': '22.00', '100-150 cm': '28.00', '150-200 cm': '38.00' }
+}
 
 // Static tree data from useTreeData.js
 const treeData = {
@@ -497,18 +513,37 @@ async function seed() {
   console.log('📦 Inserting rootstocks...')
   const rootstockMap = new Map<string, number>()
   for (const name of allRootstocks) {
-    const [inserted] = await db.insert(rootstocks).values({ name }).returning()
-    rootstockMap.set(name, inserted.id)
-    console.log(`  ✓ ${name}`)
+    const description = rootstockDescriptions[name] || null
+    const result = await db.insert(rootstocks).values({ name, description }).onConflictDoNothing().returning()
+    if (result.length > 0) {
+      rootstockMap.set(name, result[0].id)
+      console.log(`  ✓ ${name} (created)`)
+    } else {
+      // Already exists, fetch it
+      const [existing] = await db.select().from(rootstocks).where(eq(rootstocks.name, name))
+      if (existing) {
+        rootstockMap.set(name, existing.id)
+        console.log(`  ✓ ${name} (exists)`)
+      }
+    }
   }
 
   // 3. Insert sizes
   console.log('📏 Inserting sizes...')
   const sizeMap = new Map<string, number>()
   for (const size of sizeTiers) {
-    const [inserted] = await db.insert(sizes).values(size).returning()
-    sizeMap.set(size.name, inserted.id)
-    console.log(`  ✓ ${size.name} (€${size.price})`)
+    const result = await db.insert(sizes).values(size).onConflictDoNothing().returning()
+    if (result.length > 0) {
+      sizeMap.set(size.name, result[0].id)
+      console.log(`  ✓ ${size.name} (created)`)
+    } else {
+      // Already exists, fetch it
+      const [existing] = await db.select().from(sizes).where(eq(sizes.name, size.name))
+      if (existing) {
+        sizeMap.set(size.name, existing.id)
+        console.log(`  ✓ ${size.name} (exists)`)
+      }
+    }
   }
 
   // 4. Collect all unique features
@@ -523,27 +558,68 @@ async function seed() {
   console.log('🏷️  Inserting features...')
   const featureMap = new Map<string, number>()
   for (const name of allFeatures) {
-    const [inserted] = await db.insert(features).values({ name }).returning()
-    featureMap.set(name, inserted.id)
-    console.log(`  ✓ ${name}`)
+    const result = await db.insert(features).values({ name }).onConflictDoNothing().returning()
+    if (result.length > 0) {
+      featureMap.set(name, result[0].id)
+      console.log(`  ✓ ${name} (created)`)
+    } else {
+      // Already exists, fetch it
+      const [existing] = await db.select().from(features).where(eq(features.name, name))
+      if (existing) {
+        featureMap.set(name, existing.id)
+        console.log(`  ✓ ${name} (exists)`)
+      }
+    }
   }
 
   // 6. Insert categories and varieties
   console.log('🌳 Inserting categories and varieties...')
   for (const [slug, categoryData] of Object.entries(treeData)) {
     // Insert category
-    const [category] = await db.insert(categories).values({
+    let categoryId: number
+    const categoryResult = await db.insert(categories).values({
       name: categoryData.name,
       slug: categoryData.slug,
       description: categoryData.description,
       imageUrl: categoryData.image
-    }).returning()
-    console.log(`📁 Category: ${categoryData.name}`)
+    }).onConflictDoNothing().returning()
+
+    if (categoryResult.length > 0) {
+      categoryId = categoryResult[0].id
+      console.log(`📁 Category: ${categoryData.name} (created)`)
+    } else {
+      // Already exists, fetch it
+      const [existing] = await db.select().from(categories).where(eq(categories.slug, categoryData.slug))
+      if (!existing) {
+        console.log(`  ❌ Could not find category ${categoryData.slug}`)
+        continue
+      }
+      categoryId = existing.id
+      console.log(`📁 Category: ${categoryData.name} (exists)`)
+    }
+
+    // Insert category prices for each size
+    const categorySlug = categoryData.slug
+    const pricesForCategory = defaultPrices[categorySlug]
+    if (pricesForCategory) {
+      for (const [sizeName, price] of Object.entries(pricesForCategory)) {
+        const sizeId = sizeMap.get(sizeName)
+        if (sizeId) {
+          await db.insert(categoryPrices).values({
+            categoryId,
+            sizeId,
+            price
+          }).onConflictDoNothing()
+          console.log(`  💰 ${sizeName}: €${price}`)
+        }
+      }
+    }
 
     // Insert varieties
     for (const varietyData of categoryData.varieties) {
-      const [variety] = await db.insert(varieties).values({
-        categoryId: category.id,
+      let varietyId: number
+      const varietyResult = await db.insert(varieties).values({
+        categoryId,
         name: varietyData.name,
         latinName: varietyData.latinName,
         slug: varietyData.slug,
@@ -555,17 +631,30 @@ async function seed() {
         fruitColor: varietyData.fruitColor,
         taste: varietyData.taste,
         pollination: varietyData.pollination
-      }).returning()
-      console.log(`  🍎 ${varietyData.name}`)
+      }).onConflictDoNothing().returning()
+
+      if (varietyResult.length > 0) {
+        varietyId = varietyResult[0].id
+        console.log(`  🍎 ${varietyData.name} (created)`)
+      } else {
+        // Already exists, fetch it
+        const [existing] = await db.select().from(varieties).where(eq(varieties.slug, varietyData.slug))
+        if (!existing) {
+          console.log(`  ⚠️ Could not find variety ${varietyData.slug}, skipping`)
+          continue
+        }
+        varietyId = existing.id
+        console.log(`  🍎 ${varietyData.name} (exists)`)
+      }
 
       // Link features
       for (const featureName of varietyData.features || []) {
         const featureId = featureMap.get(featureName)
         if (featureId) {
           await db.insert(varietyFeatures).values({
-            varietyId: variety.id,
+            varietyId,
             featureId
-          })
+          }).onConflictDoNothing()
         }
       }
 
@@ -574,14 +663,14 @@ async function seed() {
         const rootstockId = rootstockMap.get(rootstockName)
         if (rootstockId) {
           // Create entry for each size
-          for (const [sizeName, sizeId] of sizeMap) {
+          for (const [, sizeId] of sizeMap) {
             await db.insert(varietyStock).values({
-              varietyId: variety.id,
+              varietyId,
               rootstockId,
               sizeId,
               stockQuantity: 0, // Will be updated later with actual stock
               isAvailable: true
-            })
+            }).onConflictDoNothing()
           }
         }
       }
@@ -596,7 +685,7 @@ async function seed() {
     name: 'Admin',
     role: 'admin',
     isActive: true
-  })
+  }).onConflictDoNothing()
 
   console.log('✅ Seed completed!')
   process.exit(0)
