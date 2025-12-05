@@ -8,7 +8,12 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "npx tsx server/database/migrate.ts",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "npx tsx server/database/seed.ts",
+    "db:reset": "npx tsx server/database/reset.ts"
   },
   "dependencies": {
     "@nuxt/image": "^1.11.0",
@@ -29,7 +34,8 @@
     "vue": "^3.5.18",
     "vue-chartjs": "^5.3.3",
     "vue-router": "^4.5.1",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "tsx": "^4.19.0"
   },
   "devDependencies": {
     "@types/nodemailer": "^7.0.4",

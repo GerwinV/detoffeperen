@@ -87,33 +87,38 @@ definePageMeta({
 
 const { user, isAdmin } = useAdminAuth()
 
-// Mock stats for now - will be fetched from API later
-const stats = ref([
-  {
-    label: 'Variëteiten',
-    value: 30,
-    icon: '🏷️',
-    bgColor: 'bg-blue-100'
-  },
-  {
-    label: 'Op voorraad',
-    value: 0,
-    icon: '✅',
-    bgColor: 'bg-green-100'
-  },
-  {
-    label: 'Beperkt beschikbaar',
-    value: 0,
-    icon: '⚠️',
-    bgColor: 'bg-yellow-100'
-  },
-  {
-    label: 'Niet beschikbaar',
-    value: 0,
-    icon: '❌',
-    bgColor: 'bg-red-100'
-  }
-])
+// Fetch stats from API
+const { data: statsData } = await useFetch('/api/admin/stats')
+
+const stats = computed(() => {
+  const threshold = statsData.value?.lowStockThreshold ?? 10
+  return [
+    {
+      label: 'Variëteiten',
+      value: statsData.value?.totalVarieties ?? 0,
+      icon: '🏷️',
+      bgColor: 'bg-blue-100'
+    },
+    {
+      label: `Op voorraad (≥${threshold})`,
+      value: statsData.value?.inStock ?? 0,
+      icon: '✅',
+      bgColor: 'bg-green-100'
+    },
+    {
+      label: `Beperkt (<${threshold})`,
+      value: statsData.value?.lowStock ?? 0,
+      icon: '⚠️',
+      bgColor: 'bg-yellow-100'
+    },
+    {
+      label: 'Niet beschikbaar',
+      value: statsData.value?.outOfStock ?? 0,
+      icon: '❌',
+      bgColor: 'bg-red-100'
+    }
+  ]
+})
 
 const recentActivity = ref<{ id: number; description: string; time: string; color: string }[]>([])
 </script>
