@@ -9,7 +9,10 @@ async function reset() {
     throw new Error('DATABASE_URL is not set')
   }
 
-  const client = postgres(connectionString)
+  // SSL required for Heroku Postgres
+  const client = postgres(connectionString, {
+    ssl: process.env.NODE_ENV === 'production' ? 'require' : false
+  })
   const db = drizzle(client)
 
   console.log('🗑️  Resetting database...')
