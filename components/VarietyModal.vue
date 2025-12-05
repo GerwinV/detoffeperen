@@ -97,12 +97,66 @@
           </p>
         </div>
 
-        <!-- Rootstocks -->
+        <!-- Rootstocks with Stock -->
         <div>
           <h3 class="text-sm font-semibold text-[rgb(var(--color-text)/0.6)] uppercase tracking-wide mb-3">
-            Beschikbare onderstammen
+            Beschikbare onderstammen & voorraad
           </h3>
-          <div class="flex flex-wrap gap-2">
+
+          <!-- Loading state -->
+          <div v-if="stockPending" class="text-sm text-[rgb(var(--color-text)/0.5)]">
+            Voorraad laden...
+          </div>
+
+          <!-- Stock per rootstock -->
+          <div v-else-if="stockData?.stock?.length" class="space-y-3">
+            <div
+              v-for="rootstockStock in stockData.stock"
+              :key="rootstockStock.rootstock"
+              class="bg-white rounded-lg border border-[rgb(var(--color-text)/0.15)] p-3 shadow-sm"
+            >
+              <!-- Rootstock header -->
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full" :class="getStatusDotClass(rootstockStock.overallStatus)" :title="getStatusLabel(rootstockStock.overallStatus)"></span>
+                  <span class="font-medium text-text">{{ rootstockStock.rootstock }}</span>
+                </div>
+              </div>
+
+              <!-- Sizes -->
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="sizeStock in rootstockStock.sizes"
+                  :key="sizeStock.size"
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border"
+                  :class="getSizeClasses(sizeStock.status)"
+                  :title="`${sizeStock.quantity} op voorraad`"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" :class="getStatusDotClass(sizeStock.status)"></span>
+                  {{ sizeStock.size }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Stock legend -->
+            <div class="flex flex-wrap items-center gap-4 pt-2 text-xs text-[rgb(var(--color-text)/0.6)]">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span>Op voorraad</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                <span>Beperkt</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-gray-400"></span>
+                <span>Uitverkocht</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fallback if no stock data -->
+          <div v-else class="flex flex-wrap gap-2">
             <span
               v-for="rootstock in variety.rootstocks"
               :key="rootstock"
@@ -141,6 +195,9 @@
             Prijzen
           </h3>
           <PriceTable :category="category" />
+          <p class="text-sm text-[rgb(var(--color-text)/0.6)] mt-3">
+            Je kunt onze bomen niet rechtstreeks in de webshop kopen. Voeg ze toe aan je favorieten zodat je ons vanaf daar gemakkelijk een mail kunt sturen.
+          </p>
         </div>
 
         <!-- Action buttons -->
@@ -173,10 +230,29 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch, ref } from 'vue'
 import { Sprout, Trees, Calendar, Heart, MapPin, Flower2, Palette, Bug, Apple, Sparkles } from 'lucide-vue-next'
 import PriceTable from '~/components/PriceTable.vue'
 import { useFavorites } from '~/composables/useFavorites'
+
+type AvailabilityStatus = 'available' | 'low_stock' | 'out_of_stock'
+
+interface SizeStock {
+  size: string
+  status: AvailabilityStatus
+  quantity: number
+}
+
+interface RootstockStock {
+  rootstock: string
+  sizes: SizeStock[]
+  overallStatus: AvailabilityStatus
+}
+
+interface StockResponse {
+  variety: string
+  stock: RootstockStock[]
+}
 
 const props = defineProps({
   modelValue: {
@@ -196,6 +272,67 @@ const props = defineProps({
 defineEmits(['update:modelValue'])
 
 const { isFavorited, toggleFavorite } = useFavorites()
+
+// Stock data - use ref instead of useFetch to avoid caching issues
+const stockData = ref<StockResponse | null>(null)
+const stockPending = ref(false)
+
+// Fetch stock when modal opens or variety changes
+watch(
+  [() => props.modelValue, () => props.variety?.slug, () => props.category],
+  async ([isOpen, varietySlug, category]) => {
+    if (isOpen && category && varietySlug) {
+      stockPending.value = true
+      try {
+        stockData.value = await $fetch<StockResponse>(`/api/public/stock/${category}/${varietySlug}`)
+      } catch (e) {
+        stockData.value = null
+      } finally {
+        stockPending.value = false
+      }
+    } else {
+      stockData.value = null
+    }
+  },
+  { immediate: true }
+)
+
+// Status helpers
+const getStatusLabel = (status: AvailabilityStatus): string => {
+  const labels: Record<AvailabilityStatus, string> = {
+    'available': 'Op voorraad',
+    'low_stock': 'Beperkt',
+    'out_of_stock': 'Uitverkocht'
+  }
+  return labels[status] || status
+}
+
+const getStatusDotClass = (status: AvailabilityStatus): string => {
+  const classes: Record<AvailabilityStatus, string> = {
+    'available': 'bg-green-500',
+    'low_stock': 'bg-yellow-500',
+    'out_of_stock': 'bg-gray-400'
+  }
+  return classes[status] || 'bg-gray-400'
+}
+
+const getOverallStatusClasses = (status: AvailabilityStatus): string => {
+  const classes: Record<AvailabilityStatus, string> = {
+    'available': 'bg-green-50 text-green-700',
+    'low_stock': 'bg-yellow-50 text-yellow-700',
+    'out_of_stock': 'bg-gray-50 text-gray-500'
+  }
+  return classes[status] || 'bg-gray-50 text-gray-500'
+}
+
+const getSizeClasses = (status: AvailabilityStatus): string => {
+  const classes: Record<AvailabilityStatus, string> = {
+    'available': 'bg-green-50 text-green-700 border-green-200',
+    'low_stock': 'bg-yellow-50 text-yellow-700 border-yellow-200',
+    'out_of_stock': 'bg-gray-50 text-gray-400 border-gray-200'
+  }
+  return classes[status] || 'bg-gray-50 text-gray-400 border-gray-200'
+}
 
 const categoryDisplayName = computed(() => {
   const names: Record<string, string> = {

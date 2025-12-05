@@ -8,9 +8,11 @@
     >
       <BaseCard hoverable clickable :padding="false" class="overflow-hidden flex flex-col w-full">
         <div class="aspect-w-4 aspect-h-3">
-          <img
+          <NuxtImg
             :src="category.image"
             :alt="category.name"
+            width="400"
+            height="192"
             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>

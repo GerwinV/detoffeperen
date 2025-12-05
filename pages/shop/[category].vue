@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Compact Header -->
-        <section class="bg-white py-4 md:py-6 sticky top-0 z-10 shadow-sm">
+        <section class="bg-white py-4 md:py-6 sticky top-0 z-20 shadow-sm">
             <div class="container">
                 <!-- Breadcrumb and description -->
                 <div class="mb-3">
@@ -85,7 +85,16 @@
                                 <div class="space-y-2 mb-4">
                                     <p class="text-xs font-medium text-[rgb(var(--color-text)/0.6)] uppercase tracking-wider">Onderstammen:</p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span v-for="rootstock in variety.rootstocks" :key="rootstock" class="inline-block px-2.5 py-1 bg-[rgb(var(--color-primary)/0.15)] text-[rgb(var(--color-primary))] rounded-full text-xs font-medium border border-[rgb(var(--color-primary)/0.3)]">
+                                        <span
+                                            v-for="rootstock in variety.rootstocks"
+                                            :key="rootstock"
+                                            class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[rgb(var(--color-primary)/0.15)] text-[rgb(var(--color-primary))] rounded-full text-xs font-medium border border-[rgb(var(--color-primary)/0.3)]"
+                                            :title="getAvailabilityTitle(variety.slug, rootstock)"
+                                        >
+                                            <span
+                                                class="w-2 h-2 rounded-full flex-shrink-0"
+                                                :class="getAvailabilityClasses(variety.slug, rootstock)"
+                                            ></span>
                                             {{ rootstock }}
                                         </span>
                                     </div>
@@ -137,26 +146,28 @@
 
 <script setup lang="ts">
 import { ChevronRight, Trees, Euro, Heart } from 'lucide-vue-next'
-import { useTreeData } from '~/composables/useTreeData'
+import { useTreeDataFromDB } from '~/composables/useTreeDataFromDB'
 import { useFavorites } from '~/composables/useFavorites'
+import { useAvailability } from '~/composables/useAvailability'
 import VarietyModal from '~/components/VarietyModal.vue'
 import PriceTable from '~/components/PriceTable.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { getCategoryBySlug, getVarietyBySlug } = useTreeData()
+const { getCategoryBySlug, getVarietyBySlug, getCategories, fetchData, isLoading } = useTreeDataFromDB()
 const { isFavorited, toggleFavorite } = useFavorites()
+const { fetchAvailability, getAvailability } = useAvailability()
+
+// Fetch data from database
+await fetchData()
+await fetchAvailability()
 
 const showVarietyModal = ref(false)
 const selectedVariety = ref()
 const showPriceModal = ref(false)
 
-// Available categories for navigation
-const categories = [
-    { name: 'Appelbomen', slug: 'appelbomen' },
-    { name: 'Perenbomen', slug: 'perenbomen' },
-    { name: 'Nashi', slug: 'nashi-peren' }
-]
+// Get categories from database
+const categories = computed(() => getCategories())
 
 const categoryData = computed(() => {
     return getCategoryBySlug(route.params.category as string)
@@ -181,6 +192,23 @@ const toggleVarietyFavorite = (variety: any) => {
         description: variety.description,
         harvestTime: variety.harvestTime
     })
+}
+
+// Get availability badge classes
+const getAvailabilityClasses = (varietySlug: string, rootstock: string): string => {
+    const status = getAvailability(route.params.category as string, varietySlug, rootstock)
+    if (!status) return 'bg-gray-400' // Unknown
+    if (status === 'available') return 'bg-green-500'
+    if (status === 'low_stock') return 'bg-yellow-500'
+    return 'bg-gray-400' // out_of_stock
+}
+
+const getAvailabilityTitle = (varietySlug: string, rootstock: string): string => {
+    const status = getAvailability(route.params.category as string, varietySlug, rootstock)
+    if (!status) return 'Beschikbaarheid onbekend'
+    if (status === 'available') return 'Op voorraad'
+    if (status === 'low_stock') return 'Beperkt beschikbaar'
+    return 'Uitverkocht'
 }
 
 // Handle variety query parameter (for auto-opening modal from search)

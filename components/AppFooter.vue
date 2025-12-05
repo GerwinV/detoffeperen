@@ -45,7 +45,7 @@
             <div class="border-t border-white/20 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div class="flex items-center space-x-3">
-                        <img src="/logo/Logo-Toffe-Peren_trans_wit.png" alt="Toffe Peren" class="h-12 w-auto object-contain" />
+                        <NuxtImg src="/logo/Logo-Toffe-Peren_trans_wit.png" alt="Toffe Peren" height="48" class="h-12 w-auto object-contain" />
                     </div>
                     <p class="text-sm text-white/70">
                         copyright 2025 © kwekerij Toffe Peren

@@ -143,7 +143,7 @@ const emit = defineEmits(['search', 'close'])
 
 const router = useRouter()
 const route = useRoute()
-const { searchVarieties, highlightMatch, getSearchSuggestions } = useSearch()
+const { searchVarieties, highlightMatch, getSearchSuggestions, fetchData } = useSearch()
 
 // State
 const query = ref('')
@@ -307,8 +307,12 @@ watch(() => route.query.q, (newQuery) => {
 })
 
 // Lifecycle
-onMounted(() => {
+onMounted(async () => {
     document.addEventListener('click', handleClickOutside)
+
+    // Ensure data is loaded for search
+    await fetchData()
+
     if (props.autoFocus) {
         searchInput.value?.focus()
     }

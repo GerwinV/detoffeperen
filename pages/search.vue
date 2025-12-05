@@ -28,9 +28,11 @@
                 >
                     <!-- Category Badge -->
                     <div class="relative">
-                        <img
+                        <NuxtImg
                             :src="variety.categoryImage"
                             :alt="variety.categoryName"
+                            width="400"
+                            height="192"
                             class="w-full h-48 object-cover"
                         />
                         <div class="absolute top-3 right-3 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-text">
@@ -200,7 +202,10 @@ import { useSearch } from '~/composables/useSearch'
 
 const route = useRoute()
 const router = useRouter()
-const { searchVarieties, highlightMatch, getSearchSuggestions } = useSearch()
+const { searchVarieties, highlightMatch, getSearchSuggestions, fetchData } = useSearch()
+
+// Ensure data is loaded from database
+await fetchData()
 
 // State
 const searchQuery = ref('')

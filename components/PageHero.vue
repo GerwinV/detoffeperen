@@ -8,7 +8,7 @@
                     <slot name="image">
                         <!-- Default placeholder -->
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="/logo/logo.png" alt="de Toffe Peren" class="w-32 h-32 object-contain opacity-20" />
+                            <NuxtImg src="/logo/logo.png" alt="de Toffe Peren" width="128" height="128" class="w-32 h-32 object-contain opacity-20" />
                         </div>
                     </slot>
                 </div>

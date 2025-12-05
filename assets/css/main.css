@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Core brand colors */
+  --color-primary: 45 101 96; /* Donker teal/groen - voor buttons, links en donkere secties */
+  --color-secondary: 63 30 30; /* Donkerbruin - voor footer en secundaire elementen */
+
+  /* Background colors */
+  --color-background: 173 159 130; /* Beige - main content achtergrond */
+  --color-card: 245 245 240; /* Off-white - voor cards op beige achtergrond */
+
+  /* Text colors */
+  --color-text: 63 30 30; /* Donkerbruin - primaire tekst */
+
+  /* Legacy aliases for backwards compatibility */
+  --color-accent: 45 101 96;
+  --color-success: 45 101 96;
+  --color-footer: 63 30 30;
+  --color-dark: 45 101 96;
+}
+
 @layer base {
-  :root {
-    /* Core brand colors */
-    --color-primary: 45 101 96; /* Donker teal/groen - voor buttons, links en donkere secties */
-    --color-secondary: 63 30 30; /* Donkerbruin - voor footer en secundaire elementen */
-
-    /* Background colors */
-    --color-background: 173 159 130; /* Beige - main content achtergrond */
-    --color-card: 245 245 240; /* Off-white - voor cards op beige achtergrond */
-
-    /* Text colors */
-    --color-text: 63 30 30; /* Donkerbruin - primaire tekst */
-
-    /* Legacy aliases for backwards compatibility */
-    --color-accent: 45 101 96;
-    --color-success: 45 101 96;
-    --color-footer: 63 30 30;
-    --color-dark: 45 101 96;
-  }
-
   html {
     @apply scroll-smooth;
   }
@@ -65,7 +65,7 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold font-playfair text-center mb-4;
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
   }
 
   .section-subtitle {
@@ -81,13 +81,13 @@
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
+}
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
