@@ -13,7 +13,11 @@ async function runMigrations() {
   console.log('Running migrations...')
 
   // Create a dedicated connection for migrations (max 1 connection)
-  const migrationClient = postgres(connectionString, { max: 1 })
+  // SSL required for Heroku Postgres
+  const migrationClient = postgres(connectionString, {
+    max: 1,
+    ssl: process.env.NODE_ENV === 'production' ? 'require' : false
+  })
   const db = drizzle(migrationClient)
 
   try {

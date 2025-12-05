@@ -10,10 +10,12 @@ if (!connectionString) {
 }
 
 // Create postgres client
+// SSL required for Heroku Postgres
 const client = postgres(connectionString, {
-  max: 10, // Maximum number of connections
+  max: 10,
   idle_timeout: 20,
-  connect_timeout: 10
+  connect_timeout: 10,
+  ssl: process.env.NODE_ENV === 'production' ? 'require' : false
 })
 
 // Create drizzle database instance
