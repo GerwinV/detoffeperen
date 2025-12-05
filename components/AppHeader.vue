@@ -7,7 +7,7 @@
                     isScrolled ? 'h-16' : 'h-24'
                 ]">
                     <NuxtLink to="/" class="flex items-center flex-shrink-0">
-                        <img src="/logo/Logo-Toffe-Peren_trans.png" alt="Toffe Peren" :class="[
+                        <NuxtImg src="/logo/Logo-Toffe-Peren_trans.png" alt="Toffe Peren" height="64" :class="[
                             'w-auto object-contain transition-all duration-300',
                             isScrolled ? 'h-12' : 'h-16'
                         ]" />
@@ -81,7 +81,7 @@
                     <!-- SSR fallback - render with default height -->
                     <div class="flex items-center justify-between h-24">
                         <NuxtLink to="/" class="flex items-center">
-                            <img src="/logo/Logo-Toffe-Peren_trans.png" alt="Toffe Peren" class="h-16 w-auto object-contain" />
+                            <NuxtImg src="/logo/Logo-Toffe-Peren_trans.png" alt="Toffe Peren" height="64" class="h-16 w-auto object-contain" />
                         </NuxtLink>
 
                         <!-- Desktop Navigation -->
