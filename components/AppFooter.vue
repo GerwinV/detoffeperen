@@ -28,7 +28,7 @@
                     <h3 class="font-bold text-lg mb-4 uppercase tracking-wide">Samenwerking</h3>
                     <p class="text-sm text-white/80">
                         Wij zijn een samenwerking van
-                        <a href="https://voedselbospeize.nl/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Voedselbos Peize</a>
+                        <a href="https://www.voedselbospeize.nl/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Voedselbos Peize</a>
                         en
                         <a href="https://weeldenis.nl/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Voedselbos Weeldenis</a>.
                     </p>
