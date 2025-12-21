@@ -172,8 +172,8 @@ const { getVarietyBySlug, fetchData } = useTreeDataFromDB()
 await fetchData()
 
 const showVarietyModal = ref(false)
-const selectedVariety = ref<Favorite | null>(null)
-const selectedCategory = ref<string | null>(null)
+const selectedVariety = ref<Record<string, any> | undefined>(undefined)
+const selectedCategory = ref<string | undefined>(undefined)
 const copied = ref(false)
 
 const getCategoryName = (slug: string): string => {

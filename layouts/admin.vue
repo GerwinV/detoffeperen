@@ -76,6 +76,7 @@ const { user, logout } = useAdminAuth()
 
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: '🏠' },
+  { name: 'Bestellingen', href: '/admin/orders', icon: '📋' },
   { name: 'Voorraad', href: '/admin/stock', icon: '📦' },
   { name: 'Variëteiten', href: '/admin/varieties', icon: '🏷️' },
   { name: 'Groottes', href: '/admin/sizes', icon: '📏' },
