@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const body = await readBody(event)
-  const { categoryId, name, latinName, description, fullDescription, harvestTime, blossomTime, origin, fruitColor, taste, pollination } = body
+  const { categoryId, name, latinName, description, fullDescription, harvestTime, blossomTime, origin, fruitColor, taste, pollination, published } = body
 
   if (!categoryId || !name) {
     throw createError({
@@ -42,7 +42,8 @@ export default defineEventHandler(async (event) => {
       fruitColor: fruitColor || null,
       taste: taste || null,
       pollination: pollination || null,
-      isActive: true
+      isActive: true,
+      published: published ?? true
     })
     .returning()
 

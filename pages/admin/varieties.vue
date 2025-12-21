@@ -37,7 +37,15 @@
             class="px-6 py-4 flex items-center justify-between hover:bg-gray-50"
           >
             <div class="flex-1">
-              <p class="font-medium text-gray-900">{{ variety.name }}</p>
+              <div class="flex items-center gap-2">
+                <p class="font-medium text-gray-900">{{ variety.name }}</p>
+                <span
+                  v-if="!variety.published"
+                  class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800"
+                >
+                  Niet gepubliceerd
+                </span>
+              </div>
               <p class="text-sm text-gray-500">{{ variety.latinName || 'Geen Latijnse naam' }}</p>
             </div>
             <div class="flex items-center gap-4">
@@ -48,16 +56,34 @@
               >
                 Bewerken
               </button>
-              <button
-                @click="toggleActive(variety.id, !variety.isActive)"
-                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                :class="variety.isActive ? 'bg-green-600' : 'bg-gray-200'"
-              >
-                <span
-                  class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
-                  :class="variety.isActive ? 'translate-x-5' : 'translate-x-0'"
-                />
-              </button>
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-gray-600">Gepubliceerd</span>
+                  <button
+                    @click="togglePublished(variety.id, !variety.published)"
+                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    :class="variety.published ? 'bg-blue-600' : 'bg-gray-200'"
+                  >
+                    <span
+                      class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                      :class="variety.published ? 'translate-x-5' : 'translate-x-0'"
+                    />
+                  </button>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-gray-600">Actief</span>
+                  <button
+                    @click="toggleActive(variety.id, !variety.isActive)"
+                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    :class="variety.isActive ? 'bg-green-600' : 'bg-gray-200'"
+                  >
+                    <span
+                      class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                      :class="variety.isActive ? 'translate-x-5' : 'translate-x-0'"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -229,6 +255,27 @@
               </p>
             </div>
 
+            <!-- Published toggle -->
+            <div class="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+              <div>
+                <label class="block text-sm font-medium text-gray-900">Gepubliceerd op website</label>
+                <p class="text-xs text-gray-600 mt-1">
+                  Als dit uitstaat is de variëteit alleen zichtbaar in de admin en niet voor bezoekers
+                </p>
+              </div>
+              <button
+                type="button"
+                @click="formData.published = !formData.published"
+                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                :class="formData.published ? 'bg-blue-600' : 'bg-gray-200'"
+              >
+                <span
+                  class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                  :class="formData.published ? 'translate-x-5' : 'translate-x-0'"
+                />
+              </button>
+            </div>
+
             <div class="flex gap-3 justify-end pt-4 border-t border-gray-200">
               <button
                 type="button"
@@ -264,6 +311,7 @@ interface Variety {
   latinName: string | null
   slug: string
   isActive: boolean | null
+  published: boolean | null
   categoryId: number
   categoryName: string
   categorySlug: string
@@ -301,7 +349,8 @@ const formData = ref({
   origin: '',
   fruitColor: '',
   taste: '',
-  pollination: ''
+  pollination: '',
+  published: true
 })
 
 const { data, pending, refresh } = await useFetch<{ varieties: Variety[] }>('/api/admin/varieties')
@@ -347,7 +396,8 @@ function openAddModal() {
     origin: '',
     fruitColor: '',
     taste: '',
-    pollination: ''
+    pollination: '',
+    published: true
   }
   showModal.value = true
 }
@@ -374,7 +424,8 @@ async function openEditModal(variety: Variety) {
       origin: details.variety.origin || '',
       fruitColor: details.variety.fruitColor || '',
       taste: details.variety.taste || '',
-      pollination: details.variety.pollination || ''
+      pollination: details.variety.pollination || '',
+      published: details.variety.published ?? true
     }
     allRootstocks.value = details.allRootstocks
     selectedRootstocks.value = details.assignedRootstockIds
@@ -442,6 +493,22 @@ async function toggleActive(id: number, isActive: boolean) {
     await refresh()
   } catch (error) {
     toast.add({ title: 'Kon status niet bijwerken', color: 'red' })
+  }
+}
+
+async function togglePublished(id: number, published: boolean) {
+  try {
+    await $fetch(`/api/admin/varieties/${id}`, {
+      method: 'PATCH',
+      body: { published }
+    })
+    toast.add({
+      title: published ? 'Variëteit gepubliceerd' : 'Variëteit verborgen',
+      color: 'blue'
+    })
+    await refresh()
+  } catch (error) {
+    toast.add({ title: 'Kon publicatiestatus niet bijwerken', color: 'red' })
   }
 }
 </script>

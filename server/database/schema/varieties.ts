@@ -19,6 +19,7 @@ export const varieties = pgTable('varieties', {
   taste: text('taste'),
   pollination: varchar('pollination', { length: 200 }),
   isActive: boolean('is_active').default(true),
+  published: boolean('published').default(true),
   displayOrder: integer('display_order').default(0),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow()

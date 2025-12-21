@@ -28,6 +28,7 @@ export default defineEventHandler(async (event) => {
       taste: varieties.taste,
       pollination: varieties.pollination,
       isActive: varieties.isActive,
+      published: varieties.published,
       categoryName: categories.name
     })
     .from(varieties)

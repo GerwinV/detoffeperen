@@ -26,6 +26,7 @@ export default defineEventHandler(async (event) => {
   if (body.taste !== undefined) updates.taste = body.taste || null
   if (body.pollination !== undefined) updates.pollination = body.pollination || null
   if (body.isActive !== undefined) updates.isActive = body.isActive
+  if (body.published !== undefined) updates.published = body.published
   if (body.categoryId !== undefined) updates.categoryId = parseInt(body.categoryId)
 
   // Update slug if name changed

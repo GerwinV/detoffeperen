@@ -22,13 +22,14 @@ export default defineEventHandler(async (event) => {
       taste: varieties.taste,
       pollination: varieties.pollination,
       isActive: varieties.isActive,
+      published: varieties.published,
       categoryId: varieties.categoryId,
       categoryName: categories.name,
       categorySlug: categories.slug
     })
     .from(varieties)
     .innerJoin(categories, eq(varieties.categoryId, categories.id))
-    .where(eq(varieties.isActive, true))
+    .where(and(eq(varieties.isActive, true), eq(varieties.published, true)))
     .orderBy(asc(categories.displayOrder), asc(varieties.name))
 
   // Filter by category if provided
@@ -36,6 +37,7 @@ export default defineEventHandler(async (event) => {
     varietyQuery = varietyQuery.where(
       and(
         eq(varieties.isActive, true),
+        eq(varieties.published, true),
         eq(categories.slug, categorySlug)
       )
     ) as typeof varietyQuery

@@ -10,6 +10,7 @@ export default defineEventHandler(async () => {
       latinName: varieties.latinName,
       slug: varieties.slug,
       isActive: varieties.isActive,
+      published: varieties.published,
       categoryId: varieties.categoryId,
       categoryName: categories.name,
       categorySlug: categories.slug
